@@ -1,13 +1,15 @@
 .topNav {
   width: 100%;
-  height: 65px;
+  height: 20%;
   padding-top: 10px;
   text-align: center;
   top: 0;
   z-index: 10;
   /*position: fixed;*/
 }
-
+.topNav ul {
+  background-color: rgba(240, 237, 231, 0.8)
+}
 .topNav li {
   display: inline-block;
   margin: 30px 20px 30px 20px;
@@ -16,6 +18,9 @@
   z-index: 20;
 
 }
+ #article {
+   margin-top: 400px;
+ }
 
 a {
   text-decoration: none;
@@ -26,17 +31,33 @@ a:hover {
 }
 
 .wrap {
-  margin-top: 100px;
-  background-color: rgba(40, 8, 32, 0.2);
+  background-color: #f0ede7;
   font-family: serif;
   margin: 0;
  }
 
 .image-area {
-  margin-top: 400px;
-  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-image: url("images/deer.jpg");
+  position: fixed;
+  z-index: -10;
+  margin: 0;
+  opacity: 0.8;
+  background-color: white;
 }
 
 .footer {
-  margin: 100, 50;
+  background-color: rgba(240, 237, 231, 0.8);
+  width: 100%;
+  padding: 2%;
+
 }
+
+
+
+/*
+* not for desktop
+*/
+
+@media all and (min-width: 450px)
