@@ -2,6 +2,7 @@
   width: 75%;
   text-align: center;
   margin: 0 auto;
+  padding: 0;
 }
 
 .byline {
@@ -12,8 +13,9 @@
 .project {
   background-color: #E8E2CC;
   margin: 50px auto;
-  padding: 10px;
+  padding: 5px 10px;
   max-width: 600px;
+  min-width: 350px;
 }
 
 .title {

@@ -71,7 +71,7 @@ articleView.handleMainNav = function() {
 
   $('.main-nav').on('click', 'li.tab', function(){
     var $dataContent = $(this).attr('data-content');
-    $('.tab-content').hide();
+    $('.tab-view').hide();
     $('#' + $dataContent).fadeIn();
   });
 

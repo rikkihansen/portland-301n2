@@ -2,15 +2,18 @@
 /*FONT ICONS AND ANCHORS */
 
 @import url(http://weloveiconfonts.com/api/?family=fontawesome);
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+
 
 /*fontawesome*/
 [class*="fontawesome-"]:before {
   font-family: 'FontAwesome', sans-serif;
 }
-
-a.font-icon:hover{
-  color: #4D637C;
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
 }
+
 
 .font-icon{
   text-decoration: none;
@@ -39,9 +42,22 @@ h6 {
   font-family: 'Roboto', sans-serif;
 }
 
+a{
+  color: #6F7367;
+}
+
+a:hover{
+  color: #4D637C;
+}
+
 p{
   font-family: 'Lora', serif;
+  font-size: 16px;
+  color: #214C3F;
 }
+
+
+
 
 /*HEADER AND BODY*/
 
@@ -76,7 +92,7 @@ p{
 .sub-header{
   font-weight:lighter;
   letter-spacing: 2px;
-  margin-left: 5%;
+  margin: 0 5%;
   color: #2E6957;
 }
 
@@ -84,7 +100,58 @@ p{
   padding: 10px;
 }
 
-/*ARTICLE STYLING*/
+/*NAV STYLING*/
+.nav-container{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: 30px auto;
+  border-radius: 3px;
+  background-color: rgba(66, 84, 107, 0.14);
+  padding: 1% 1%;
+  text-align: center;
+  height: 80px;
+}
+
+nav ul{
+  display: flex;
+  padding:10px;
+  width: 60%;
+}
+
+nav li{
+  width: 50%;
+  height: 100%;
+  list-style-type: none;
+  border: solid rgba(64, 61, 61, 0.09) 1px;
+  padding: 10px;
+  border-radius: 2px;
+  background-color: rgba(140, 195, 176, 0.14);
+  margin: 5px;
+  font-size: 20px;
+}
+
+nav a{
+  text-decoration: none;
+  color: #437365;
+  display: block;
+}
+
+/*SELECT */
+
+select{
+  -webkit-appearance:none;
+  padding:10px;
+  width: 30%;
+  height: 55%;
+  font-size: 15px;
+  color:  #437365;
+  background-color: rgba(140, 195, 176, 0.14);
+  border: solid rgba(64, 61, 61, 0.09) 1px;
+  background: url(../images/br_down.png) rgba(140, 195, 176, 0.14) no-repeat 95%;
+}
+
+/*ARTICLE CONTENT STYLING*/
 
 article{
   margin-top: 30px;
@@ -93,14 +160,12 @@ article{
   border-radius: 3px;
 }
 
-
-
 .date{
   font-style: italic;
 }
 
 .title-date{
-  padding:2px 40px 2px 40px;
+  padding:2px 0px 2px 20px;
 }
 
 .text{
@@ -115,15 +180,28 @@ article{
   text-align:left;
 }
 
+a.show-more{
+  text-decoration: none;
+  font-size: 17px;
+  letter-spacing: 1px;
+  margin: 0 20px;
+}
+
+.skillsGithub{
+  margin: 20px 0;
+}
+
+ .skills a{
+  text-decoration: none;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
 hr{
   border: 1px solid #6F7367;
   clear: both;
 }
 
-.skillsGithub{
-  padding: 0 20px 20px;
-  margin: 0;
-}
 /*IMAGE STYLING*/
 img{
   max-width: 100%;
@@ -137,7 +215,6 @@ img{
 
 .image-left {
   float: left;
-  margin: 10px;
 }
 
 .image-right{
@@ -145,7 +222,6 @@ img{
 }
 
 
-/*VIDEO MODAL*/
 /*DISCLAIMER!! USED CODE EXAMPLE FROM W3 SCHOOLS CAN EXPLAIN MODAL CODE THOUGH*/
 .modal{
   display: none; /* Hidden by default */
@@ -173,4 +249,72 @@ img{
 #about div.header-container{
   background-color: rgba(225, 225, 225, 0.64);
   justify-content: flex-end;
+}
+
+footer{
+  display: flex;
+  align-items: center;
+  height: 3em;
+  border: 1px solid rgba(225, 225, 225, 0.64);
+  border-radius: 1px;
+  background-color: rgba(225, 225, 225, 0.64);
+  margin: 1%;
+  padding: 0;
+  justify-content: space-around;
+}
+
+footer h4{
+  font-size: 22px;
+  color: #6F7367;
+}
+
+footer a{
+  text-decoration: none;
+}
+
+
+ /*MEDIA QUERIES TODO*/
+
+@media screen and (max-width: 500px){
+  p.url-text{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 745px){
+
+  .nav-container{
+    flex-direction: column;
+    height: 100%
+  }
+
+  .nav-container ul{
+    display: block;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .nav-container li{
+    width: 100%;
+    padding: 1% 0;
+    margin: 1% auto;
+  }
+
+  .nav-container select{
+    width: 100%;
+    text-align: center;
+  }
+
+}
+
+@media screen and (max-width: 890px){
+  .text{
+    clear: both;
+  }
+
+  .image{
+    margin: 20px 0 50px 0;
+  }
 }

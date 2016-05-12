@@ -2,49 +2,96 @@
 <html>
   <head>
     <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Arielle | Web Developer</title>
-    <link rel="stylesheet" type="text/css" src="css/normalize.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" src="css/normalize.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
   </head>
   <body>
+    <!-- nav menu -->
+    <nav>
+      <ul class="nav">
+        <a class="nav-link" href="#projects"><li data-content="projects" class=".tab nav-item">PORTFOLIO</li></a>
+        <li data-content="about" class=".tab nav-item"><a class="nav-link" href="#">ABOUT</a></li>
+      </ul>
+    </nav>
+    <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <label for="nav-trigger"></label>
+    <!-- nav menu -->
 
-    <header>
-      <span id="buttonNav"><a><img src="img/menuNav.png" /></a></span>
-      <img id="profilePic" src="img/profilepic.jpg">
-      <h1>Arielle Foldoe</h1>
-      <h2>Junior Developer</h2>
-      <a href="#projects" class="btn btn--s">View Portfolio</a>
-      <div id="navDiv">
-        <ul>
-          <a href="#projects"><li class="navLinks">PORTFOLIO</li></a>
-          <a href="about.html"><li class="navLinks">ABOUT</li></a>
-          <a href="contact.html"><li class="navLinks">CONTACT</li></a>
-        </ul>
-      </div>
-    </header>
-
-    <section id="projects">
-      <article class="template" data-category="">
+    <div class="site-wrap">
+      <!-- header -->
+      <section class="container-fluid text-xs-center" id="header">
+        <div class="row">
           <header>
-            <h1>Title</h1>
-            <div class="byline">
-              By <address><a href="">Arielle</a></address>
-              published <time pubdate datetime="2000-01-01">Publish Time</time>
-            </div>
+            <!-- <img id="profilePic" src="img/profilepic.jpg"> -->
+            <h1 class="display-4">
+              Arielle Foldoe
+              <small class="text-muted">Front End Developer</small>
+            </h1>
+            <a href="#projects" class="btn btn--s">View Portfolio</a>
           </header>
-          <section class="article-body"></section>
-        </article>
-    </section>
+        </div>
+        <!-- /header -->
+      </section>
 
-    <footer>
-      <a href="https://www.facebook.com/arielle.foldoe"><img src="img/facebook-logo.png" height="20px" alt="Facebook Logo"></a>
-      <a href="https://twitter.com/a_foldoe"><img src="img/twitter-logo.png" height="20px "alt="Twitter Logo"></a>
-      <a href="https://github.com/afoldoe"><img src="img/GitHub_Logo.png" height="20px" alt="GitHub Logo"></a>
-      <p>&copy; 2016 Arielle Foldoe</p>
-    </footer>
-    <script src="https://code.jquery.com/jquery-1.12.3.js"   integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc="   crossorigin="anonymous"></script>
+      <!-- projects -->
+      <div class="container">
+        <div class="row">
+          <section id="projects" class="tab-content">
+            <article class="template" data-category="">
+              <header>
+                <address><a href=""><h1>Title</h1></a></address>
+                <div class="byline">
+                  By <address><a href="">Arielle</a></address>
+                  published <time pubdate datetime="2000-01-01">Publish Time</time>
+                </div>
+              </header>
+              <section class="project-body"></section>
+              <a href="#" class="read-on">Read on &rarr;</a>
+            </article>
+          </section>
+        </div>
+      </div>
+        <!-- /projects -->
+
+        <!-- about -->
+        <section id="about" class="tab-content container">
+          <div class="row">
+            <section class="col-xs-12">
+              <h3>You can find me in PDX:</h1>
+              <ul class="list-unstyled list-group">
+                <li class="list-group-item">bombing down Clinton St on my bike rain or shine! (Mostly rain)</li>
+                <li class="list-group-item">Holing up at a coffee shop or Powell's and gorging on science fiction, comics, or graphic novels.</li>
+                <li class="list-group-item">Swinging by Ground Kontrol to play Ms Pacman after a hard day's work.</li>
+              </ul>
+            </section>
+          </div>
+        </section>
+        <!-- /about -->
+
+        <!-- footer -->
+        <section class="container-fluid text">
+          <div class="row">
+            <footer class="text-center">
+              <a href="https://www.facebook.com/arielle.foldoe"><img src="img/facebook-logo.png" height="20px" alt="Facebook Logo"></a>
+              <a href="https://twitter.com/a_foldoe"><img src="img/twitter-logo.png" height="20px "alt="Twitter Logo"></a>
+              <a href="https://github.com/afoldoe"><img src="img/GitHub_Logo.png" height="20px" alt="GitHub Logo"></a>
+              <p>&copy; 2016 Arielle Foldoe</p>
+            </footer>
+          </div>
+        </section>
+        <!-- /footer -->
+      </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
     <script type="text/javascript" src="eslintrc.js"></script>
-    <script type="text/javascript" src="scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/projectView.js"></script>
+    <script type="text/javascript" src="scripts/projects.js"></script>
+    <script type="text/javascript" src="scripts/script.js"></script>
   </body>
 </html>

@@ -43,6 +43,8 @@ li {
 
 #title-headline {
   display: inline-block;
+  padding: 0;
+  margin: 20px auto;
 }
 
 #nav-links {
@@ -66,4 +68,22 @@ li {
 
 #nav-links a {
   color: white;
+}
+
+#about {
+  display: none;
+}
+
+.about-container {
+  color: #E8E2CC;
+  width: 75%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+#about img {
+  min-width: 10%;
+  max-width: 20%;
+  margin: 0 auto;
 }

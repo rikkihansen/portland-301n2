@@ -1,0 +1,40 @@
+main {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+body {
+  line-height: 1.5;
+  font-size: 100%;
+  color: #313131;
+}
+
+hr {
+  margin: 1em;
+  width: 80%;
+}
+
+/*TEXT STYLES
+=======================================*/
+p {
+  font-size: 1em;
+}
+
+address {
+  display: inline-block;
+}
+
+/*LINK STYLES
+=======================================*/
+
+a, a:link, a:active {
+  color: #7bc043;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: #0392cf;
+}
+
+a:visited {
+}

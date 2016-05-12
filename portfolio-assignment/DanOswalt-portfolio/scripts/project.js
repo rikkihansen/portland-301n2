@@ -16,8 +16,6 @@ function Project (opts) {
 Project.prototype.toHtml = function() {
   var $newProject = $('.template').clone();
 
-  console.log($newProject.html());
-
   $newProject.find('.project-link').attr('href', this.url).html(this.title);
   $newProject.find('.description').html(this.description);
   $newProject.find('.details').html(this.details);
@@ -55,12 +53,22 @@ ProjectModule.prototype.load = function() {
 
   //hide the template
   $('.template').hide();
+
 };
 
 /****
- * Code to on page load
- ****/
+ * Code to run on page load
+ **/
 
 $(function() {
   new ProjectModule(projectData).load();
+
+  $('#nav-links').on('click', 'li.tab', function(e){
+    e.preventDefault();
+    var $dataContent = $(this).attr('data-content');
+    console.log($dataContent);
+    $('.tab-view').hide();
+    $('#' + $dataContent).show();
+  });
+
 });
