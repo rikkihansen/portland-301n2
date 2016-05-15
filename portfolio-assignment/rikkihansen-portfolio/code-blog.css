@@ -1,3 +1,7 @@
+html {
+  margin: 0;
+  padding: 0;
+}
 .topNav {
   width: 100%;
   height: 20%;
@@ -13,7 +17,7 @@
 .topNav li {
   display: inline-block;
   margin: 30px 20px 30px 20px;
-  font-size: 25px;
+  font-size: 2em;
   text-decoration: none;
   z-index: 20;
 

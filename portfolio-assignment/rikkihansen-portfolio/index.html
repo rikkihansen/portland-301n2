@@ -31,17 +31,20 @@
            </li>
          </ul>
        </div>
-          <article class="template" data-category="" data-attribute="">
+       <script id="project-template" type="text/x-handlebars-template">
+          <article  data-category="{{category}}" data-attribute="{{contributers}}">
             <header>
-              <h1>Rikki Hansen</h1>
+              <!-- <h1>Rikki Hansen</h1> -->
+              <h1>{{title}}</h1>
               <div class="byline">
-                By <address><a href="#">Author Name</a></address>
-                published <time pubdate datetime="2000-01-01">Publish Time</time>
+                By <address><a href="#">{{contributers}}</a></address>
+                <!-- published <time pubdate datetime="2000-01-01">Publish Time</time> -->
               </div>
             </header>
-            <section class="article-body"></section>
+            <section class="article-body">{{{body}}}</section>
             <a href="#" class="read-on">Read On </a>
           </article>
+          </script>
         </section>
         <section id="about" class="tab-content">
         <header>
@@ -67,6 +70,7 @@
 
 
   <script src="https://code.jquery.com/jquery-1.12.3.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
   <script type="text/javascript" src="script/blog-content.js"></script>
   <script type="text/javascript" src="script/code-blog.js"></script>
   <script type="text/javascript" src="script/code-blog-view.js"></script>
