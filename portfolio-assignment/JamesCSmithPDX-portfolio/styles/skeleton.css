@@ -8,6 +8,7 @@
 */
 
 
+
 /* Table of contents
 ––––––––––––––––––––––––––––––––––––––––––––––––––
 - Grid
@@ -154,7 +155,6 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 p {
   margin-top: 0; }
 
-
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
@@ -190,7 +190,7 @@ input[type="button"] {
 .button:hover,
 button:hover,
 input[type="submit"]:hover,
-input[type="reset"]:ho:;ver,
+input[type="reset"]:hover,
 input[type="button"]:hover,
 .button:focus,
 button:focus,
@@ -285,6 +285,7 @@ label > .label-body {
   font-weight: normal; }
 
 
+
 /* Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 ul {
@@ -302,6 +303,7 @@ ol ul {
   font-size: 90%; }
 li {
   margin-bottom: 1rem; }
+
 
 
 /* Code

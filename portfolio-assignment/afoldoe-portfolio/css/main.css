@@ -25,13 +25,28 @@ label[for="nav-trigger"] {
 .nav {
   background: #818a91;;
   width: 100%;
-  height: 100%;
+  height: 50%;
   position: fixed;
+  z-index: 0;
+  top: 0;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 0;
+}
+.nav-trigger {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+.nav-trigger:checked + label {
+    top: 5rem;
+}
+.nav-trigger:checked ~ .site-wrap {
+    top: 5rem;
+    box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+}
+.nav-trigger + label, .site-wrap {
+    transition: top 0.2s;
 }
 .site-wrap {
   min-width: 100%;
@@ -43,21 +58,7 @@ label[for="nav-trigger"] {
   left: 0;
   z-index: 1;
 }
-.nav-trigger {
-  position: absolute;
-  clip: rect(0, 0, 0, 0);
-}
-.nav-trigger:checked + label {
-    left: 215px;
-}
 
-.nav-trigger:checked ~ .site-wrap {
-    left: 200px;
-    box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
-}
-.nav-trigger + label, .site-wrap {
-    transition: left 0.2s;
-}
 #header {
   background-color: #DBB93F;
   width: 100%;
@@ -66,14 +67,6 @@ label[for="nav-trigger"] {
   align-items: center;
   position: relative;
   height: 50%;
-}
-#profilePic {
-  border-radius: 45%;
-  height: 64px;
-  width: 64px;
-  position: absolute;
-  top: 5%;
-  right: 5%;
 }
 .btn, .btn:link, .btn:visited {
   border-radius: 0.25em;
@@ -104,10 +97,24 @@ label[for="nav-trigger"] {
 
 /* Media Queries*/
 @media only screen and (min-width : 768px) and (max-width : 1400px) {
+  .nav {
+    height: 100%;
+  }
+  .nav-trigger:checked + label {
+      left: 215px;
+      top: 15px;
+  }
+  .nav-trigger:checked ~ .site-wrap {
+      left: 200px;
+      top: 0px;
+  }
+  .nav-trigger + label, .site-wrap {
+      transition: left 0.2s;
+      transition: top 0s;
+  }
   #projects {
     flex-direction: row;
     justify-content: space-around;
-
   }
   #header {
     height: 75%;

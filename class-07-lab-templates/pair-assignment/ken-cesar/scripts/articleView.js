@@ -68,4 +68,8 @@ $(document).ready(function() {
   articleView.handleAuthorFilter();
   articleView.handleMainNav();
   articleView.setTeasers();
+<<<<<<< HEAD
+});
+=======
 })
+>>>>>>> a1ada185c68c736deb9f263d2891571b930f503a

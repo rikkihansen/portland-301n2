@@ -53,6 +53,7 @@ ProjectModule.prototype.load = function() {
 
 function ViewHandler() {
 
+
 };
 
 ViewHandler.prototype.handleTabClicks = function() {
@@ -71,6 +72,7 @@ ViewHandler.prototype.handleTabClicks = function() {
  **/
 
 $(function() {
+
   try {
     $.getJSON('data/projectJSON1.json', function(json) {
       var projectModule = new ProjectModule(json.data);
@@ -80,6 +82,9 @@ $(function() {
     $('#projects-module').append('<p>oops, try again</p>');
   }
 
+  var projectModule = new ProjectModule(projectData);
   var viewHandler = new ViewHandler();
+
+  projectModule.load();
   viewHandler.handleTabClicks();
 });
