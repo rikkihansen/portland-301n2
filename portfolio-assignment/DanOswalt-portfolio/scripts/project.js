@@ -15,26 +15,20 @@ function Project (opts) {
 
 Project.prototype.toHtml = function() {
   var $newProject = $('.template').clone();
-
-  $newProject.find('.project-link').attr('href', this.url).html(this.title);
-  $newProject.find('.description').html(this.description);
-  $newProject.find('.details').html(this.details);
-  $newProject.find('time').attr('datetime', this.publishedOn);
-  $newProject.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
-  $newProject.find('.author').html(this.publishedBy);
-  $newProject.find('.code-link').attr('href', this.codeUrl);
-  $newProject.find('img').attr('src', this.screenshot);
-  $newProject.removeClass('template');
-
-  return $newProject;
+  var appTemplate = $('#project-template').html();
+  var compileTemplate = Handlebars.compile(appTemplate);
+  return compileTemplate(this);
 };
+
+Handlebars.registerHelper('daysAgo', function(person) {
+  return parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago';
+});
 
 /*****
 * class ProjectModule
 ***/
 
 function ProjectModule(projectData) {
-  //receives array of project data
   this.data = projectData;
 };
 
@@ -51,24 +45,41 @@ ProjectModule.prototype.load = function() {
     $('#projects-module').append(newProject.toHtml());
   });
 
-  //hide the template
-  $('.template').hide();
+};
+
+/***
+ * class ViewHandler
+ **/
+
+function ViewHandler() {
 
 };
+
+ViewHandler.prototype.handleTabClicks = function() {
+  $('#nav-links').on('click', 'li.tab', function(e){
+    e.preventDefault();
+    var $dataContent = $(this).attr('data-content');
+    console.log($dataContent);
+    $('.tab-view').fadeOut('fast');
+    $('#' + $dataContent).fadeIn('fast');
+  });
+};
+
 
 /****
  * Code to run on page load
  **/
 
 $(function() {
-  new ProjectModule(projectData).load();
+  try {
+    $.getJSON('data/projectJSON1.json', function(json) {
+      var projectModule = new ProjectModule(json.data);
+      projectModule.load();
+    });
+  } catch(e) {
+    $('#projects-module').append('<p>oops, try again</p>');
+  }
 
-  $('#nav-links').on('click', 'li.tab', function(e){
-    e.preventDefault();
-    var $dataContent = $(this).attr('data-content');
-    console.log($dataContent);
-    $('.tab-view').hide();
-    $('#' + $dataContent).show();
-  });
-
+  var viewHandler = new ViewHandler();
+  viewHandler.handleTabClicks();
 });

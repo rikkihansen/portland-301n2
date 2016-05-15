@@ -2,11 +2,14 @@
  * Base rules
  **/
 
+body {
+  background-color: #010101;
+}
+
 main {
   text-align: center;
   font-family: 'Courier', sans-serif;
   color: #010101;
-  background-color: #010101;
 }
 
 h1, h2, h3, h4 {
@@ -29,6 +32,7 @@ a:hover {
 }
 
 ul {
+  margin: 0;
   padding: 0;
 }
 
@@ -50,16 +54,13 @@ li {
 #nav-links {
   display: inline-block;
   min-width: 100%;
-  margin: -60px 0 0 0;
   padding: 0px;
-  text-align: center;
+  cursor: pointer;
 }
 
 #nav-links li {
   background-color: #AC1603;
-  margin: 2px;
   padding: 8px;
-  margin-bottom: 30px;
 }
 
 #nav-links li:hover {
@@ -72,6 +73,7 @@ li {
 
 #about {
   display: none;
+  margin-top: 100px;
 }
 
 .about-container {
@@ -83,7 +85,34 @@ li {
 }
 
 #about img {
-  min-width: 10%;
-  max-width: 20%;
   margin: 0 auto;
+}
+
+/* when width is less than 500 */
+
+@media all and (max-width: 499px) {
+  #nav-links li {
+    display: block;
+    margin: 1px;
+    text-align: left;
+  }
+
+  #about img {
+    max-width: 40%;
+  }
+
+}
+
+/* when width is more than 500 */
+
+@media all and (min-width: 500px) {
+  #nav-links li {
+    display: inline-block;
+    margin: 2px;
+    text-align: center;
+  }
+
+  #about img {
+    max-width: 20%;
+  }
 }

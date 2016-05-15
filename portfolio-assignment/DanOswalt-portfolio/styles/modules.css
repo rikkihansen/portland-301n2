@@ -1,8 +1,8 @@
 #projects-module {
-  width: 75%;
-  text-align: center;
   margin: 0 auto;
   padding: 0;
+  text-align: center;
+  color: #E8E2CC;
 }
 
 .byline {
@@ -11,7 +11,7 @@
 }
 
 .project {
-  background-color: #E8E2CC;
+  background-color: #010101;;
   margin: 50px auto;
   padding: 5px 10px;
   max-width: 600px;
@@ -25,4 +25,19 @@
 .title,
 .author {
   color: #AC1603;
+}
+
+/* when width is less than 500 */
+
+@media all and (max-width: 499px) {
+  #projects-module {
+    width: 100%;
+  }
+}
+
+/* when width is greater than 500 */
+
+@media all and (min-width: 500px) {
+  #projects-module {
+    width: 75%;
 }

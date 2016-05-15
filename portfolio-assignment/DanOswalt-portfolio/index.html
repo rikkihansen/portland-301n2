@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dan Oswalt</title>
     <link rel="stylesheet" href="vendors/styles/normalize.css">
     <link href='https://fonts.googleapis.com/css?family=Poiret+One|Droid+Serif' rel='stylesheet' type='text/css'>
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="styles/modules.css">
 
   </head>
+
   <body>
     <main>
 
@@ -16,38 +18,42 @@
         <h1 id='title-headline'>Dan Oswalt</h1>
         <nav id='nav-links'>
           <ul>
-            <li class="tab" data-content="projects-module"><a href=''>Home<a></li>
-            <li class="tab" data-content="about"><a href=''>About<a></li>
-            <li><a href='https://github.com/DanOswalt' target="_blank" >GitHub<a></li>
-            <li><a href='' target="_blank" >Twitter<a></li>
-            <li><a href='' target="_blank" >LinkedIn<a></li>
+            <a href=''><li class="tab" data-content="projects-module">Home</li><a>
+            <a href=''><li class="tab" data-content="about">About</li><a>
+            <a href='https://github.com/DanOswalt' target="_blank" ><li>GitHub</li><a>
+            <a href='' target="_blank" ><li>Twitter</li><a>
+            <a href='' target="_blank" ><li>LinkedIn</li><a>
           </ul>
         </nav>
 
       </header>
 
+      <!-- Project-views load here -->
       <section id='projects-module' class='tab-view'>
-        <!-- Template for a Project -->
-        <div class='project template'>
-          <header>
-            <h2 class='title'><a class='project-link' href=''>Project Title</a></h2><!--project.title, project.url-->
-            <p class='description'>Project Description</p><!--project.description-->
-            <div class='byline'>
-              <span class='author'>Publishing Author</span><!--project.publishedBy-->
-              published this <time pubdate datetime='2001-01-01'>in a previous time</time><!--project.publishedOn-->
-            </div>
-            <br>
-            <section class='details-container'>
-              <p class='details'>Project details</p><!--project.details-->
-              <p><a class='code-link' href=''>See Code</a></p><!--project.codeUrl-->
-              <img src="img/blacksquareredsquare.png" alt='squares pic'><!--project.screenshot-->
-              <br>
-              <br>
-            <section>
-          </header>
-        </div>
-      </section>
 
+        <!-- Handlebars Project Template -->
+        <script id='project-template' type='text/template'>
+          <div class='project template'>
+            <header>
+              <h2 class='title'><a class='project-link' href={{url}}>{{title}}</a></h2><!--project.title, project.url-->
+              <p class='description'>{{description}}</p><!--project.description-->
+              <div class='byline'>
+                <span class='author'>{{publishedBy}}</span><!--project.publishedBy-->
+                published this <time pubdate datetime={{publishedOn}}>{{daysAgo }}</time><!--project.publishedOn-->
+              </div>
+              <br>
+              <section class='details-container'>
+                <p class='details'>{{details}}</p><!--project.details-->
+                <p><a class='code-link' href={{codeUrl}}>See Code</a></p><!--project.codeUrl-->
+                <img src={{screenshot}} alt='{{screenshot}}'><!--project.screenshot-->
+                <br>
+                <br>
+              <section>
+            </header>
+          </div>
+        </script>
+
+      <!-- about tab content -->
       <section id='about' class='tab-view'>
         <div class='about-container'>
           <img src='img/profilepic.jpeg'>
@@ -64,6 +70,7 @@
   </body>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <script src="scripts/projectData.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <!-- <script src="scripts/projectData.js"></script> -->
   <script src="scripts/project.js"></script>
 </html>

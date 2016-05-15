@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
   <title>Sean Loughran Porfolio</title>
-  <link rel="stylesheet" href="portfoliobase.css">
+  <link rel="stylesheet" href="Styles/portfoliobase.css">
 </head>
 <body>
   <header>
-    <h1>Sean Loughran Portfolio</h1>
+    <h1>Sean Loughran</h1>
   </header>
   <nav>
     <ul>
-      <li data-content="projects"><a href="#">Home</a></li>
-      <li data-content="about"><a href="#">About</a></li>
+      <li class="tab" data-content="projects"><a href="#">Home</a></li>
+      <li class="tab" data-content="about"><a href="#">About</a></li>
       <li><a href="https://www.facebook.com/sean.loughran.31" target="_blank">Sean's Facebook</a></li>
       <li><a href="https://github.com/seanloughran" target="_blank">Sean's Github</a></li>
     </ul>
   </nav>
-  <main id="projects">
+  <main id="projects" class="tab-content">
     <article class="portfolio_item template">
       <br>
       <h2 class="project_title">Project Title</h2>
       <a class="project_url" href="#" target="_blank"><img class="project_picture" src=""></a><br>
-      <p class="project_description">Template Description</p>
+      <div class="project_description">Template Description</div>
       <br>
       <hr>
     </article>
   </main>
-  <section id="about">
+    <section id="about" class="tab-content">
     <p>About Me Section</p>
   </section>
   <footer>
   </footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <script src="portfolio.js"></script>
+  <script src="JS/portfolio.js"></script>
 </body>
