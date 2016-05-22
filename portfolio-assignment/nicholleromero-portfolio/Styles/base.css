@@ -1,0 +1,18 @@
+html {
+  background-color: #688FA4;
+}
+
+ul {
+  display: inline-block;
+  list-style-type: none;
+}
+
+img {
+  width: 30px;
+  height: 30px;
+  max-width: 100%;
+}
+
+a {
+  color: #10384D;
+}

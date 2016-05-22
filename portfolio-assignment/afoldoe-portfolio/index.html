@@ -7,8 +7,24 @@
     <title>Arielle | Web Developer</title>
     <link rel="stylesheet" type="text/css" src="css/normalize.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/state.css">
+    <link rel="stylesheet" type="text/css" href="css/modules.css">
+    <!-- projects template -->
+    <script id="project-template" type="text/x-handlebars-template">
+      <article class="clearfix col-xs-4" data-category="{{category}}" data-author="{{author}}">
+          <header>
+          <address><a href="{{projectURL}}"><h1>{{title}}</h1></a></address>
+          <div class="byline">
+            By <address><a href="">Arielle</a></address>
+            published <time pubdate datetime="{{publishedOn}}">{{publishStatus}}</time>
+          </div>
+        </header>
+        <section class="project-body">{{{body}}}</section>
+        <a href="#" class="read-on">Read on &rarr;</a>
+      </article>
+    </script>
+    <!-- /projects template -->
   </head>
   <body>
     <!-- nav menu -->
@@ -37,59 +53,48 @@
         </div>
         <!-- /header -->
       </section>
+      
+      <!-- projects section -->
+      <section id="projects" class="tab-content">
+        <div class="container text-xs-center">
+          <div class="row">
+          </div>
+        </div>
+      </section>
+      <!-- /projects section -->
 
-      <!-- projects -->
-      <div class="container text-xs-center">
+      <!-- about -->
+      <section id="about" class="tab-content container-fluid text-xs-center">
         <div class="row">
-          <section id="projects" class="tab-content">
-            <article class="template" data-category="">
-              <header>
-                <address><a href=""><h1>Title</h1></a></address>
-                <div class="byline">
-                  By <address><a href="">Arielle</a></address>
-                  published <time pubdate datetime="2000-01-01">Publish Time</time>
-                </div>
-              </header>
-              <section class="project-body"></section>
-              <a href="#" class="read-on">Read on &rarr;</a>
-            </article>
+          <section class="col-xs-12">
+            <h3>You can find me in PDX:</h1>
+            <ul class="list-unstyled list-group">
+              <li class="list-group-item">bombing down Clinton St on my bike rain or shine! (Mostly rain)</li>
+              <li class="list-group-item">Holing up at a coffee shop or Powell's and gorging on science fiction, comics, or graphic novels.</li>
+              <li class="list-group-item">Swinging by Ground Kontrol to play Ms Pacman after a hard day's work.</li>
+            </ul>
           </section>
         </div>
-      </div>
-        <!-- /projects -->
+      </section>
+      <!-- /about -->
 
-        <!-- about -->
-
-        <section id="about" class="tab-content container-fluid text-xs-center">
-          <div class="row">
-            <section class="col-xs-12">
-              <h3>You can find me in PDX:</h1>
-              <ul class="list-unstyled list-group">
-                <li class="list-group-item">bombing down Clinton St on my bike rain or shine! (Mostly rain)</li>
-                <li class="list-group-item">Holing up at a coffee shop or Powell's and gorging on science fiction, comics, or graphic novels.</li>
-                <li class="list-group-item">Swinging by Ground Kontrol to play Ms Pacman after a hard day's work.</li>
-              </ul>
-            </section>
-          </div>
-        </section>
-        <!-- /about -->
-
-        <!-- footer -->
-        <section class="container-fluid text-xs-center">
-          <div class="row">
-            <footer class="text-center">
-              <a href="https://www.facebook.com/arielle.foldoe"><img src="img/facebook-logo.png" height="20px" alt="Facebook Logo"></a>
-              <a href="https://twitter.com/a_foldoe"><img src="img/twitter-logo.png" height="20px "alt="Twitter Logo"></a>
-              <a href="https://github.com/afoldoe"><img src="img/GitHub_Logo.png" height="20px" alt="GitHub Logo"></a>
-              <p>&copy; 2016 Arielle Foldoe</p>
-            </footer>
-          </div>
-        </section>
-        <!-- /footer -->
-      </div>
+      <!-- footer -->
+      <section class="container-fluid text-xs-center">
+        <div class="row">
+          <footer class="text-center">
+            <a href="https://www.facebook.com/arielle.foldoe"><img src="img/facebook-logo.png" height="20px" alt="Facebook Logo"></a>
+            <a href="https://twitter.com/a_foldoe"><img src="img/twitter-logo.png" height="20px "alt="Twitter Logo"></a>
+            <a href="https://github.com/afoldoe"><img src="img/GitHub_Logo.png" height="20px" alt="GitHub Logo"></a>
+            <p>&copy; 2016 Arielle Foldoe</p>
+          </footer>
+        </div>
+      </section>
+      <!-- /footer -->
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
     <script type="text/javascript" src="eslintrc.js"></script>
     <script type="text/javascript" src="scripts/projectView.js"></script>
     <script type="text/javascript" src="scripts/projects.js"></script>

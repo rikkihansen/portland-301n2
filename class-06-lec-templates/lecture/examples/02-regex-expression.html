@@ -14,12 +14,18 @@
   <div id="app"></div>
   <script>
     var compile = function(template, expressions) {
-      return appTemplate.replace(/{{(\d+)}}/g, swapper);
+      return appTemplate.replace(/{{(\d+)}}/g, swapper); //d = all digits g = repeating?? over all template variables.
       // where
       function swapper(match, number) {
+        console.log(match);
         return expressions[number];
       };
     };
+
+    var str = "this is crazy";
+    var res = str.replace(/ is/, " so fucking");
+    console.log(res);
+
     var appTemplate = $('#hello').html()
     var compiledTemplate = compile(appTemplate, ["Students", "Ivan", "Apples"]);
     $('#app').append(compiledTemplate);

@@ -27,17 +27,91 @@
   color: #AC1603;
 }
 
+#new-project-form-module {
+  margin: 0 auto;
+  padding: 2% 0;
+  text-align: center;
+  color: #010101;
+}
+
+#new-project-form-module h2 {
+  color: #E8E2CC;
+}
+
+#new-project-form-module input,
+#new-project-form-module textarea {
+  background-color: #010101;
+  border: #AC1603 1px solid;
+  color: #E8E2CC;
+  width: 400px;
+}
+
+#new-project-submit {
+  display: inline-block;
+  font-weight: bold;
+  color: #010101;
+  background-color: #E8E2CC;
+  border: #AC1603 1px solid;
+  padding: 3px;
+  margin: 0 auto;
+  cursor: pointer;
+  width: 50px;
+}
+
+#new-project-submit:hover {
+  opacity: 0.75;
+}
+
+#project-preview-container {
+  margin: 0 auto;
+  padding: 4% 8%;
+  text-align: center;
+  color: #E8E2CC;
+}
+
+#project-export input {
+  display: inline-block;
+  margin: 0 auto;
+  width: 50%;
+  background-color: #010101;
+  cursor: pointer;
+}
+
 /* when width is less than 500 */
 
 @media all and (max-width: 499px) {
   #projects-module {
     width: 100%;
   }
+
+  #new-project-form-module input,
+  #new-project-form-module textarea {
+    width: 400px;
+  }
 }
 
-/* when width is greater than 500 */
+/* when width is greater than 500 but less than 1000*/
 
 @media all and (min-width: 500px) {
   #projects-module {
     width: 75%;
 }
+
+/* when width is greater 1000*/
+
+@media all and (min-width: 1000px) {
+  #new-project-form-module {
+    display: inline-block;
+    max-width: 45%;
+  }
+
+  #new-project-form-module input,
+  #new-project-form-module textarea {
+    width: 90%;
+  }
+
+  #project-preview-container {
+    display: inline-block;
+    max-width: 50%;
+    float: right;
+  }

@@ -1,0 +1,278 @@
+/*NAV CONTENT
+===============================================================*/
+
+.name {
+    font-family: "Raleway", Helvetica, Arial, sans-serif;
+    font-style: oblique;
+    font-size: 1rem, padding: 1rem;
+    color: aliceblue;
+    text-align: center;
+}
+.mainHeader, header, p, #aboutSection {
+    font-family: "Raleway", Helvetica, Arial, sans-serif;
+    color: aliceblue;
+    opacity: .9;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+nav {
+    width: 100%;
+    height: auto;
+}
+.firstNav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 1%;
+    margin-bottom: -1%;
+    text-align: center;
+    width: 90%;
+}
+.navList li {
+    display: block;
+    margin: 0 auto;
+    padding: 1%;
+    text-decoration: none;
+    width: 20%;
+}
+a {
+    text-decoration: none;
+}
+
+/*MAIN BODY CONTENT
+===============================================================*/
+.summaryDiv {
+  font-style: italic;
+  color: gray;
+}
+
+body {
+    padding: 1em;
+    background-color: rgb(30, 33, 39);
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+main {
+    width: 90%;
+}
+#aboutSection section {
+    display: block;
+}
+footer {
+    padding-left: -2%;
+    color: gray;
+    font-family: Times;
+}
+
+/*ARTICLES/PROFILES CONTENT
+===============================================================*/
+
+hr {
+    margin: 1em;
+    /*width: 100%;*/
+    margin: 0 auto;
+}
+address {
+    display: inline-block;
+}
+
+/*MEDIA CONTENT
+===============================================================*/
+
+img {
+    width: 35%;
+    -moz-box-shadow: 5px 5px 5px black;
+    -webkit-box-shadow: 5px 5px 5px black;
+    box-shadow: 5px 5px 5px black;
+}
+@media all and (max-width: 1024px) {
+    #container {
+        width: 100%;
+    }
+    nav {
+        width: 100%;
+    }
+    img {
+        width: 30%;
+    }
+}
+@media all and (max-width: 640px) {
+    #container main {
+        width: 100%;
+    }
+    nav {
+        width: 100%;
+    }
+    img {
+        width: 50%;
+    }
+}
+@media all and (max-width: 420px) {
+
+    nav {
+        width: 100%;
+    }
+    img {
+        width: 100%;
+    }
+    .navList ul {
+        text-align: left;
+    }
+    #container main {
+      width: 100%;
+    }
+
+    .navList li {
+        display: block;
+        padding: 0em;
+        text-decoration: none;
+        width: 110%;
+        font-size: 1.6em;
+        text-align: center;
+        background: #17191D;
+        line-height: 1.5em;
+        /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(#17191D, #24272E);
+        /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#17191D, #24272E);
+        /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#17191D, #24272E);
+        /* For Firefox 3.6 to 15 */
+        background: linear-gradient(#17191D, #24272E);
+        /* Standard syntax (must be last) */
+    }
+    .firstNav ul {
+        display: block;
+        ;
+    }
+    body {
+        padding: 0em;
+        background-color: rgb(30, 33, 39);
+        width: 98%;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+}
+
+a:hover {
+    color: aliceblue;
+}
+
+.hrAppend {
+    margin: 3rem;
+}
+
+/*CONTENT TAKEN FROM https://github.com/mattboldt/typed.js/
+===============================================================*/
+
+.typed-cursor {
+    opacity: 1;
+    -webkit-animation: blink 0.7s 10;
+    -moz-animation: blink 0.7s 10;
+    animation: blink 0.7s 15;
+}
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-moz-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.icon-home, .icon-github, .icon-link, .icon-user, .icon-profile, .icon-facebook2, .icon-phone {
+    color: red;
+    padding-left: 5px:
+}
+.menuFont {
+    font-family: 'ABeeZee', sans-serif;
+}
+span {
+    padding-left: .5em;
+}
+
+/*CONTENT TAKEN FROM PAIR-PROGRAMMING DOC
+===============================================================*/
+@font-face {
+    font-family: 'icomoon';
+    src:    url('fonts/icomoon.eot?yzefby');
+    src:    url('fonts/icomoon.eot?yzefby#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?yzefby') format('truetype'),
+        url('fonts/icomoon.woff?yzefby') format('woff'),
+        url('fonts/icomoon.svg?yzefby#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home:before {
+    content: "\e900";
+}
+.icon-home2:before {
+    content: "\e901";
+}
+.icon-profile:before {
+    content: "\e6fd";
+}
+.icon-phone:before {
+    content: "\e800";
+}
+.icon-address-book:before {
+    content: "\e801";
+}
+.icon-user:before {
+    content: "\e802";
+}
+.icon-menu:before {
+    content: "\e903";
+}
+.icon-facebook2:before {
+    content: "\e904";
+}
+.icon-github:before {
+    content: "\e905";
+}
+.icon-linkedin:before {
+    content: "\e803";
+}
+.icon-linkedin2:before {
+    content: "\e804";
+}

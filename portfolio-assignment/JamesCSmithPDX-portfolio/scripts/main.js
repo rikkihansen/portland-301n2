@@ -12,29 +12,23 @@ function Project (post) {
   this.projDescription = post.projDescription;
 };
 
+// build a blog post
 Project.prototype.toHtml = function() {
-  var $newProject = $('article.template').clone();  //clone project template
+  //get the template
+  var portfolioScript = $('#portfolio-template').html();
 
-  $newProject.find('h2').text(this.title); // add the title
-  $newProject.attr('data-category', this.projectType); // set project type category
+  //compile the portfolio
+  var thePortfolio = Handlebars.compile(portfolioScript);
 
-  $newProject.find('address > a').html(this.contributor); // add contributors to link
-  $newProject.find('address > a').attr('href', this.contributorUrl); // add github url
+  //calculate the posted days ago amount
+  this.daysAgo = parseInt((new Date() - new Date(this.postDate))/60/60/24/1000);
+  this.publishStatus = this.postDate ? 'published ' + this.daysAgo + ' days ago' : '(draft)';
 
-  $newProject.find('time[pubdate]').attr('title', this.postDate); // add title hover
-
-  $newProject.find('time').html('Posted ' + parseInt((new Date() - new Date(this.postDate))/60/60/24/1000) + ' days ago'); //calculte days since posting
-
-  $newProject.find('img').attr('src', this.imgSrc).attr('alt', this.imgAlt); //add screenshot of project
-
-  $newProject.find('section.projDescription').html(this.projDescription);
-
-  // $newProject.append('<hr>'); // page break
-  $newProject.removeClass('template'); //not a template now
-
-  return $newProject;
+//return post to toHtml function
+  return thePortfolio(this);
 };
 
+//sort blog data, crereate array, append to page
 projectData.sort(function(a,b) {
   return (new Date(b.postDate)) - (new Date(a.postDate));
 });  //sort by date

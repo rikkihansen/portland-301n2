@@ -1,0 +1,32 @@
+.template {
+  display: none;
+}
+
+.draft {
+  display: none;
+}
+
+#projects {
+  padding: 2%;
+}
+
+#projects h2 {
+  margin-bottom: 0;
+}
+.contributors {
+  color: #5d5d5d;
+}
+
+.contributors address {
+  font-weight: bold;
+  color: inherit;
+  margin-bottom: 0;
+}
+.contributors img {
+  display: block;
+  margin: 1vw 0;
+  max-width: 100%;
+}
+time {
+  font-size: .75em;
+}

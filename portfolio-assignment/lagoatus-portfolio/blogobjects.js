@@ -22,5 +22,3 @@ var myProjects = [
   },
 
 ];
-
-console.log(myProjects);

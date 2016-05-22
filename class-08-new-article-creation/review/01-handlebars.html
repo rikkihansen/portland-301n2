@@ -8,6 +8,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
 
   <script id="first-template" type="text/x-handlebars-template">
+    <!-- dump @root is useful for debugging, it is basically console logging our data-->
+    <!-- #with accessed the values of properties.  -->
     {{dump @root}}
     {{#each people}}
       <p>{{firstName}} {{lastName}}</p>
@@ -15,7 +17,7 @@
   </script>
   <script id="second-template" type="text/x-handlebars-template">
     {{dump @root}}
-    <p>{{firstName}} {{lastName}}</p>
+    <p>{{person.firstName}} {{person.lastName}}</p>
   </script>
 
 </head>
@@ -25,28 +27,31 @@
     // Register a helper
     // Log object to console
     Handlebars.registerHelper('dump', function(value){
+      //  /n%s means new line and string. ??
       console.log('handlebars data dump=\n%s', JSON.stringify(value, null, '    '));
     });
-
     // This is the default context, which is passed to the template
-    var arrData = {
-      people: [
-        { firstName: 'Homer', lastName: 'Simpson' },
-        { firstName: 'Peter', lastName: 'Griffin' },
-        { firstName: 'Eric', lastName: 'Cartman' },
-        { firstName: 'Kenny', lastName: 'McCormick' },
-        { firstName: 'Bart', lastName: 'Simpson' }
-      ]
-    };
-    // Pass our data to the first template
-    var firstTemplate = $('#first-template').html()
-    var compiledFirstTemplate = Handlebars.compile(firstTemplate);
-    var firstHtml = compiledFirstTemplate(arrData);
-    $('#app').append(firstHtml);
+    // var arrData = {
+    //   people: [
+    //     { firstName: 'Homer', lastName: 'Simpson' },
+    //     { firstName: 'Peter', lastName: 'Griffin' },
+    //     { firstName: 'Eric', lastName: 'Cartman' },
+    //     { firstName: 'Kenny', lastName: 'McCormick' },
+    //     { firstName: 'Bart', lastName: 'Simpson' }
+    //   ]
+    // };
+    // // Pass our data to the first template
+    // var firstTemplate = $('#first-template').html()
+    // var compiledFirstTemplate = Handlebars.compile(firstTemplate);
+    // var firstHtml = compiledFirstTemplate(arrData);
+    // $('#app').append(firstHtml);
 
-    var objData = { firstName: 'Stewie', lastName: 'Griffin' };
+    var objData = { 'person':
+      { firstName: 'Stewie', lastName: 'Griffin' }}
+    ;
     var secondTemplate = $('#second-template').html()
     var compiledSecondTemplate = Handlebars.compile(secondTemplate);
+    console.log('passing data=', JSON.stringify(objData, null, '    '));
     var secondHtml = compiledSecondTemplate(objData);
     $('#app').append(secondHtml);
   </script>

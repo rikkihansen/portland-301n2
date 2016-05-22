@@ -7,17 +7,23 @@ function Project (comps) {
   this.description = comps.description;
 }
 
-//$().hide();
 
 Project.prototype.toHtml = function() {
-  var $newProject = $('.template').clone();
-  console.log($newProject);
-  $newProject.find('#name a').html(this.name);
-  $newProject.find('#name a').attr('href', this.url);
-  $newProject.find('#desc').html(this.description);
-  $newProject.append('<hr>');
-  $newProject.removeClass('template');
-  return $newProject;
+
+  var appTemplate = $('#project-template').html();
+
+
+  var compiledTemplate = Handlebars.compile(appTemplate);
+  return compiledTemplate(this);
+
+
+  // var $newProject = $('.template').clone();
+  // $newProject.find('#name a').html(this.name);
+  // $newProject.find('#name a').attr('href', this.url);
+  // $newProject.find('#desc').html(this.description);
+  // $newProject.append('<hr>');
+  // $newProject.removeClass('template');
+  // return $newProject;
 };
 
 // projectData.sort(function(a,b) {
@@ -26,11 +32,9 @@ Project.prototype.toHtml = function() {
 
 projectData.forEach(function(p) {
   projects.push(new Project(p));
-  console.log(p);
-  console.log("this works!");
 });
 
-projects.forEach(function(a){
-$('#projects').append(a.toHtml())
-console.log(a);
+
+projects.forEach(function(a) {
+  $('#projects').append(a.toHtml());
 });

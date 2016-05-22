@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Project</title>
+    <link rel="stylesheet" href="vendors/styles/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One|Droid+Serif' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/modules.css">
+
+    <!-- Handlebars Project Template -->
+    <script id='project-template' type="text/x-handlebars-template">
+      <div class='project'>
+        <header>
+          <h2 class='title'><a class='project-link' href={{url}} target="_blank">{{title}}</a></h2><!--project.title, project.url-->
+          <p class='description'>{{description}}</p><!--project.description-->
+          <div class='byline'>
+            <span class='author'>{{publishedBy}}</span><!--project.publishedBy-->
+            published this <time pubdate datetime={{publishedOn}}>{{daysAgo}}</time><!--project.publishedOn-->
+          </div>
+          <br>
+          <section class='details-container'>
+            <p class='details'>{{details}}</p><!--project.details-->
+            <p><a class='code-link' href={{codeUrl}} target="_blank">See Code</a></p><!--project.codeUrl-->
+            <!-- <img src={{screenshot}} alt='{{screenshot}}'>project.screenshot-->
+            <br>
+            <br>
+          </section>
+        </header>
+      </div>
+    </script>
+
+    <main>
+      <div id='form-and-preview-container'>
+        <section id='new-project-form-module'>
+          <h2>New Project Form</h2>
+          <form action="#" id='new-project'>
+            <label>
+              <input type="text" id="project-title" placeholder="Title" required>
+            </label>
+            <label>
+              <input type="text" id="project-publishedBy" placeholder="Dan Oswalt" required>
+            </label>
+            <label>
+              <input type="text" id="project-url" placeholder="Project URL" required>
+            </label>
+            <label>
+              <input type="text" id="project-codeUrl" placeholder="Github URL" required>
+            </label>
+            <label>
+              <textarea id="project-description" placeholder="Description" rows="3" cols="40" required></textarea>
+            </label>
+            <label>
+              <textarea id="project-details" placeholder="Details" rows="20" cols="40" required></textarea>
+            </label>
+          </form>
+        </section>
+
+        <aside id='project-preview-container'>
+          <hr>
+          <h2>Preview:</h2>
+          <hr>
+
+          <!-- Project-views load here -->
+          <section id='project-preview'>
+
+          </section>
+          <section id="project-export">
+            <label>
+              Copy JSON or save to local storage
+              <input type="text" readonly id="project-json" />
+              <div id="new-project-submit">save</div>
+            </label>
+          </section>
+
+        </aside>
+      </div>
+
+    </main>
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <script src="scripts/project.js"></script>
+</html>

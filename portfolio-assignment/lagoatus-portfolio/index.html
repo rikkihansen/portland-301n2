@@ -3,11 +3,35 @@
 
 <head>
     <title>Web Developer | Portfolio</title>
-    <link type="text/css" rel="stylesheet" href="css/skeleton.css">
-    <link type="text/css" rel="stylesheet" href="css/normalize.css">
+    <link type="text/css" rel="stylesheet" href="css/vendor/skeleton.css">
+    <link type="text/css" rel="stylesheet" href="css/vendor/normalize.css">
+    <link type="text/css" rel="stylesheet" href="css/modules/modules.css">
+    <link type="text/css" rel="stylesheet" href="css/layout/layout.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <link type="text/css" rel="stylesheet" href="css/blog.css">
+    <link type="text/css" rel="stylesheet" href="css/base/blog.css">
+
+    <script id="template" type="text/x-handlebars-template">
+
+    <article class="template">
+        <header>
+            <h1>{{title}}</h1>
+            <div class="summaryDiv">
+                Role:
+                <address>
+                  <a href="{{projectUrl}}">{{role}}</a>
+                </address>
+                <br> This project was completed
+                <time pubdate datetime="2000-01-01">{{completionDate}}</time>
+            </div>
+        </header>
+        <section class="project-body">
+            {{{body}}}
+        </section>
+    </article>
+  </script>
+
+
 </head>
 
 <body>
@@ -17,52 +41,48 @@
 
         </header>
         <nav class="firstNav">
-            <ul class="navList">
-                <li class="hometab icon-home" data-content="projects"><a href="#"><span class="menuFont">Home</span></a></li>
-                <li class="tab icon-user" data-content="about"><a href="#"><span class="menuFont">About</span></a></li>
-                <li class="icon-facebook2"><a href="https://www.facebook.com/aaron.beerman.9" target="_blank"><span class="menuFont">Facebook</span></a></li>
-                <li class="icon-github"><a href="https://github.com/lagoatus" target="_blank"><span class="menuFont">Github</span></a></li>
-                <li class="contact icon-phone"> <a href="#"><span class="menuFont">Contact</span></a></li>
-            </ul>
+            <div class="burg ">
+                <ul class="navList">
+                    <li class="hometab icon-home" data-content="projects"><a href="#"><span class="menuFont">Home</span></a></li>
+                    <li class="tab icon-user" data-content="about"><a href="#"><span class="menuFont">About</span></a></li>
+                    <li class="icon-facebook2"><a href="https://www.facebook.com/aaron.beerman.9" target="_blank"><span class="menuFont">Facebook</span></a></li>
+                    <li class="icon-github"><a href="https://github.com/lagoatus" target="_blank"><span class="menuFont">Github</span></a></li>
+                    <li class="contact icon-phone"> <a href="#"><span class="menuFont">Contact</span></a></li>
+                </ul>
+            </div>
             <hr>
         </nav>
         <section id="projects">
-            <article class="template">
-                <header>
-                    <h1>Title</h1>
-                    <div class="summaryDiv">
-                        Role: <address><a  href=""></a></address><br> This project was completed
-                        <time pubdate datetime="2000-01-01">Date Finished</time>
-                    </div>
-                </header>
-                <section class="project-body"></section>
-            </article>
+
         </section>
 
         <section id="about" class="tab-content">
-        <header>
-          Welcome to my Porfolio!
-        </header>
-        <section id="aboutSection">
-          <h1>Some of my interests:</h1>
-          <ul>
-            <li>Coding</li>
-            <li>Finding a new species of bird that I have never seen.</li>
-            <li>Discovering...</li>
-          </ul>
+            <header>
+                Welcome to my Porfolio!
+            </header>
+            <section id="aboutSection">
+                <h1>Some of my interests:</h1>
+                <ul>
+                    <li>Coding</li>
+                    <li>Finding a new species of bird that I have never seen.</li>
+                    <li>Discovering...</li>
+                </ul>
+            </section>
         </section>
-      </section>
     </main>
     <footer>
         &copy; 2015 Aaron Beerman | Portfolio
     </footer>
 
     <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <script src="typed.js"></script>
     <script src="blogobjects.js"></script>
     <script src="blog.js"></script>
     <script src="view.js"></script>
-
+    <script>
+      Projects.fetchall();
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,25 @@
+/*NAV CONTENT
+===============================================================*/
+
+nav {
+    width: 100%;
+    height: auto;
+}
+.firstNav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 1%;
+    margin-bottom: -1%;
+    text-align: center;
+    width: 90%;
+}
+.navList li {
+    display: block;
+    margin: 0 auto;
+    padding: 1%;
+    text-decoration: none;
+    width: 20%;
+}
+a {
+    text-decoration: none;
+}

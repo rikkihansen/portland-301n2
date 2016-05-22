@@ -1,18 +1,180 @@
+/* base */
+
 html,body {
   height: 100%;
-  margin: 0;
-  padding: 20px;
-  font-family: helvetica;
+  margin: 0 2%;
+  padding: 5px;
+  font-family: helvetica, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, h3, p, li, a {
+  color: #797979;
+}
+
+h1 {
+  font-size: 2.0rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  cursor: pointer;
+}
+
+/* /base */
+
+
+/* layout */
+
+section {
+  margin-top: 20px;
+}
+
+
+/* /layout */
+
+
+/* module */
+
+.prototype {
+  display: none;
+}
+
+.fullWidthImages {
+  max-width: 100%;
+  min-width: 100%;
+  -webkit-filter: grayscale(100%);
+}
+
+.fullWidthImages:hover {
+  -webkit-filter: none;
+}
+
+.projectName {
+  font-size: 1.6rem;
+}
+
+.projectDate {
+  font-size: 1.0rem;
 }
 
 ul {
   list-style: none;
   padding-left: 0;
+  margin-bottom: 40px;
 }
 
-.prototype {
+li, #projects img {
+  margin-bottom: 10px;
+}
+
+p, .projectDescription, li>a {
+  font-size: 1.1rem;
+}
+
+footer p {
+  text-align: center;
+  font-size: 0.7rem;
+  margin: 20px auto;
+}
+
+/* /module */
+
+
+/* state */
+
+.selected {
+  color: red;
+}
+
+
+.stickyNav {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  border-top: 0;
+  border-bottom-style: solid;
+  border-bottom-color: #797979;
+  border-bottom-width: 1px;
+}
+
+.stickyNav a {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.stickyNav hr {
+  border-color: #797979;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-width: 2px;
+  max-width: 100%;
+  margin: 0;
   display: none;
 }
+
+.nav, .stickyNav {
+  display: block;
+  font-size: 1.3rem;
+  background-color: white;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+.nav a, .stickyNav a {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+/* /state */
+
+
+/* theme */
+
+#pageTitle {
+  font-size: 2.0rem;
+  display: block;
+  margin: 10px auto;
+}
+
+#ericImg {
+    width: 100px;
+    display: block;
+    margin: 20px auto;
+    border: 1px solid red;
+    border-radius: 500px;
+    -webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+}
+
+#pageTitle {
+  display: block;
+  text-align: center;
+  font-weight: 300;
+  color: #797979;
+}
+
+/* /theme */
+
 
 /* twitter bootstrap fluid row styles */
 
@@ -116,3 +278,69 @@ ul {
   width: 6.382978723404255%;
   *width: 6.329787234042553%;
 }
+
+/*@media screen and (min-width: 400px)  {
+
+}*/
+@media screen and (min-width: 600px)  {
+  body {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .navContainer {
+    height: 102px;
+  }
+
+  #ericImg {
+    display: block;;
+    float: left;
+    width: 80px;
+    margin: 10px auto;
+  }
+
+  .stickyNav a, .nav a {
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+
+
+  #pageTitle {
+    margin-top: -0.05rem;
+    margin-left: 10px;
+    float: left;
+    line-height: 102px;
+  }
+
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+  }
+
+  p, .projectDescription, li>a {
+    font-size: 1.0rem;
+  }
+
+  .nav  {
+    padding-top: 20px;
+    text-align: right;
+  }
+
+  .projectName {
+    font-size: 1.6rem;
+  }
+
+  .projectDate {
+    font-size: 0.9rem;
+  }
+
+  .projectLink {
+    font-size: 0.8rem;
+  }

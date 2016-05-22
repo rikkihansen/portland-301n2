@@ -33,25 +33,26 @@
 
         <!-- Handlebars Project Template -->
         <script id='project-template' type='text/template'>
-          <div class='project template'>
+          <div class='project'>
             <header>
-              <h2 class='title'><a class='project-link' href={{url}}>{{title}}</a></h2><!--project.title, project.url-->
+              <h2 class='title'><a class='project-link' href={{url}} target="_blank">{{title}}</a></h2><!--project.title, project.url-->
               <p class='description'>{{description}}</p><!--project.description-->
               <div class='byline'>
                 <span class='author'>{{publishedBy}}</span><!--project.publishedBy-->
-                published this <time pubdate datetime={{publishedOn}}>{{daysAgo }}</time><!--project.publishedOn-->
+                published this <time pubdate datetime={{publishedOn}}>{{daysAgo}}</time><!--project.publishedOn-->
               </div>
               <br>
               <section class='details-container'>
                 <p class='details'>{{details}}</p><!--project.details-->
-                <p><a class='code-link' href={{codeUrl}}>See Code</a></p><!--project.codeUrl-->
+                <p><a class='code-link' href={{codeUrl}} target="_blank">See Code</a></p><!--project.codeUrl-->
                 <img src={{screenshot}} alt='{{screenshot}}'><!--project.screenshot-->
                 <br>
                 <br>
-              <section>
+              </section>
             </header>
           </div>
         </script>
+      </section>
 
       <!-- about tab content -->
       <section id='about' class='tab-view'>
@@ -71,6 +72,5 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-   <script src="scripts/projectData.js"></script>
   <script src="scripts/project.js"></script>
 </html>

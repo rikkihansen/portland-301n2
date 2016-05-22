@@ -3,78 +3,117 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Eric's Lab</title>
+        <title>Eric Johnson</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="Eric Johnson's projects, ideas, etc" content="">
         <meta name="Eric Johnson" content="">
-                        
+
         <!-- styles -->
+        <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css">
-        <link href="style.css" type="text/css" rel="stylesheet">                                                         
+        <link href="style.css" type="text/css" rel="stylesheet">
+
+        <!-- handlebars template -->
+        <script id="projectTemplate" type="text/x-handlebars-template">
+          <ul>
+            <li id="title" class="projectName"><a href="{{link}}" target="_blank">{{title}}</a></li>
+            <li id="date" class="projectDate">{{date}}</li>
+            <img id="projectImage" class='fullWidthImages' src="{{image}}">
+            <li id="description" class="projectDescription">{{description}}</li>
+          </ul>
+        </script>
     </head>
-    
+
+
     <body>
-    	<div class="row-fluid">
-	    	<div class="span4">
-	        <h1 id="title">Eric's Lab</h1>		
-	      </div> 
-	    </div>
+    	<header>
+	    	<div class="row-fluid">
+		    	<div class="span12 navContainer">
+              <a href="index.html"><img id="ericImg" src="images/eric-profile-circle.png"></a>
+              <h1 id="pageTitle">Eric Johnson</h1>
+              <nav class="nav">
+                  <a data-tab="about" class="selected" href="#about">About</a>
+                  <a data-tab="projects" href="#projects">Projects</a>
+                  <a data-tab="connect" href="#connect">Connect</a>
+              </nav>
+		      </div>
+		    </div>
+		</header>
 
-	    <div class="row-fluid">
-	    	<div class="span12">
-	    		<h2>About</h2>
-	    		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-	    	</div>
-	    </div>
+		<section id="about">
+		    <div class="row-fluid">
+		    	<div class="span12">
+		    		<h2>Nice to meet you!</h2>
+		    		<p>I'm passionate about building meaningful tools and experiences for people, communities and businesses. I've been building websites
+              for five years and in spring 2016 I made the leap to transition into a full-time web developer career through Code Fellows. Before
+              that I spent four years at Airbnb managing projects on the Product team and as an analyst on the Sales team. <br /><br />
+              I graduated from Claremont McKenna College in 2012 with a dual degree in Economics and Psychology but found my passion was web startups.
+              I maintain a carpool community website ("Casual Carpool") that helps thousands of carpoolers in the San Francisco Bay Area get to work quickly and
+              cheaply. I hope to help scale this community one day and also start a for-profit web business of my own. My current focus is to hone
+              my development skills and help to create product experience for early-stage web businesses.
+            </br/></p>
+		    	</div>
+		    </div>
 
-	    <div class="row-fluid">
-		      <div id="links">
-		      	<div class="span3">
-		    		<h2>Connect</h2>
-		    		<ul>
-		    			<li><a href="mailto:eric@ericslab.com">Email</a></li>
-		    			<li><a href="https://github.com/airic-j">Github</a></li>
-		    			<li><a href="https://www.linkedin.com/in/ericjj">Linkedin</a></li>
-		    			<li><a href="https://www.facebook.com/ericjjohnson">Facebook</a></li>
-		    		</ul>
-		    	</div>	      
-					<div class="span6">
-						<h2>Code</h2>
-						<ul>
-							<li><a href="https://www.codefellows.org/courses/code-301/intermediate-software-development">Code Fellows Intermediate Software Development Spring '16</a></li>
-							<li><a href="https://generalassemb.ly/education/front-end-web-development">General Assembly Front End Class Summer '14</a></li>
-							<li>More soon!</li>
-					</div>
-					<div class="span3">
-						<h2>Design</h2>
-						<ul>
-							<li><a href="http://trydesignlab.com/course/certificates/EricJ/">DesignLab Summer '14</a></li>
-							<li><a>More soon!</a>
-						</ul>
-					</div>	       
-				</div>
-			</div>	
-
+		    <div class="row-fluid">
+  				<div class="span12">
+  					<h3>Learning to code</h3>
+  					<ul>
+  						<li><a href="https://www.codefellows.org/courses/code-301/intermediate-software-development">Code Fellows Intermediate Software Development Spring '16</a></li>
+  						<li><a href="https://generalassemb.ly/education/front-end-web-development">General Assembly Front End Class Summer '14</a></li>
+  						<li>More soon!</li>
+  					</ul>
+  				</div>
+        </div>
+        <div class="row-fluid">
+  				<div class="span12">
+  					<h3>Practicing design</h3>
+  					<ul>
+  						<li><a href="http://trydesignlab.com/course/certificates/EricJ/">DesignLab Summer '14</a></li>
+  						<li>More soon!</li>
+  					</ul>
+  				</div>
+			</div>
+		</section>
+		<section id="projects">
 			<div class="row-fluid">
-	    	<div id="projects">
 	    		<h2>Projects</h2>
-	    		<div class="prototype">
-		    		<ul>
-		    			<li id="title">Project name</li>
-		    			<li id="date">2016-01-01</li>
-		    			<li id="link">Link</li>
-		    			<li id="description">Description text</li>
-		    		</ul>
+	    		<div id="projectHolder">
 		    	</div>
 	    	</div>
-	    </div>       
-		</div>       
+	    </section>
+      <section id="connect">
+        <div class="row-fluid">
+            <div class="span12">
+            <h2>Connect</h2>
+            <ul>
+              <li><a href="mailto:eric@ericslab.com">Email</a></li>
+              <li><a href="https://github.com/airic-j">Github</a></li>
+              <li><a href="https://www.linkedin.com/in/ericjj">Linkedin</a></li>
+              <li><a href="https://www.facebook.com/ericjjohnson">Facebook</a></li>
+              <li><a href="https://www.google.com/maps/place/Portland,+OR/">Or visit me in <span class="weather">Portland, OR</span></a></li>
+              <img class="fullWidthImages" src="images/portland.jpg">
+              <!-- <li><a href=""><span class="weather">San Francisco</span> (~One weekend per month)</a></li>
+              <img class="fullWidthImages" src="images/sf.jpg"> -->
+            </ul>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div class="center">
+          <p>
+            Made with &hearts; in 2016
+          </p>
+        </div>
+      </footer>
 
-    <!-- js -->  
+
+    <!-- js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <script src="projectData.js"></script>
     <script src="lab.js"></script>
-    <!-- js -->    
+    <!-- js -->
 
     </body>
 </html>

@@ -1,45 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-  <meta charset="UTF-8">
-  <title>Handlebars Template</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
+    <meta charset="UTF-8">
+    <title>Handlebars Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
 
-  <script id="hello" type="text/x-handlebars-template">
-    {{#each people}}
-      <p>{{capitalize firstName}} {{lastName}}</p>
-    {{/each}}
-  </script>
+    <script id="hello" type="text/x-handlebars-template">
+        {{#each people}}
+        <p>{{capitalize firstName}} {{lastName}}</p>
+        {{/each}}
+    </script>
 
 </head>
-<body>
-  <div id="app"></div>
-  <script>
-    // Register a helper
-    Handlebars.registerHelper('capitalize', function(str){
-      // str is the argument passed to the helper when called
-      str = str || '';
-      return str.slice(0,1).toUpperCase() + str.slice(1);
-    });
 
-    // This is the default context, which is passed to the template
-    var data = {
-      people: [
-        { firstName: 'homer', lastName: 'Simpson' },
-        { firstName: 'Peter', lastName: 'Griffin' },
-        { firstName: 'Eric', lastName: 'Cartman' },
-        { firstName: 'Kenny', lastName: 'McCormick' },
-        { firstName: 'Bart', lastName: 'Simpson' }
-      ]
-    };
-    // Pass our data to the template
-    var appTemplate = $('#hello').html()
-    var compiledTemplate = Handlebars.compile(appTemplate);
-    var html = compiledTemplate(data);
-    $('#app').append(html);
-  </script>
+<body>
+    <div id="app"></div>
+    <script>
+        // Register a helper
+        Handlebars.registerHelper('capitalize', function(str) {
+            // str is the argument passed to the helper when called
+            str = str || '';
+            return str.slice(0, 1).toUpperCase() + str.slice(1);
+        });
+
+        // This is the default context, which is passed to the template
+        var data = {
+            people: [{
+                firstName: 'homer',
+                lastName: 'Simpson'
+            }, {
+                firstName: 'Peter',
+                lastName: 'Griffin'
+            }, {
+                firstName: 'Eric',
+                lastName: 'Cartman'
+            }, {
+                firstName: 'Kenny',
+                lastName: 'McCormick'
+            }, {
+                firstName: 'Bart',
+                lastName: 'Simpson'
+            }]
+        };
+        // Pass our data to the template
+        var appTemplate = $('#hello').html()
+        var compiledTemplate = Handlebars.compile(appTemplate);
+        var html = compiledTemplate(data);
+        console.log(html);
+        $('#app').append(html);
+    </script>
 
 </body>
+
 </html>

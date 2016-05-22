@@ -10,58 +10,39 @@ $(function(){
   };
 
   Project.prototype.toHtml = function(){
-    var $projectArticle = $('.project').clone();
-    //create timestamp
-    $projectArticle.find('.days-ago').html('Created about ' + parseInt((new Date() - new Date(this.date))/60/60/24/1000) + ' days ago');
 
-    //insert main categories for title, text, image, date.
-    var $title = $projectArticle.find('.title');
-    var $image = $projectArticle.find('.image');
-    var $date = $projectArticle.find('.date');
-    var $text = $projectArticle.find('.text');
-    var $skillsGithub = $projectArticle.find('.skillsGithub');
-    $title.html(this.title);
-    $image.attr('src', this.img);
-    $date.html(this.date);
-    $text.html(this.text);
-    $skillsGithub.find('a').attr('href', this.url);
-    $projectArticle.find('.url-text').html(this.url);
+    this.daysAgo = 'Created about ' + parseInt((new Date() - new Date(this.date))/60/60/24/1000) + ' days ago';
 
-    //skills appended
-    $projectArticle.find('.skills').html(' ');
-    this.skills.forEach(function(item){
-      $projectArticle.find('.skills').append('<a data-category="' + item + '" href="#">  ' + item + '  </a>');
-      //TODO make anchors fire events particular to category
+    var articleTemplate = $('#article').html();
+    var compiledTemplate = Handlebars.compile(articleTemplate);
+    var html = compiledTemplate(this);
+
+    Handlebars.registerHelper('join', function(options) {
+      var newSkills = '';
+      var skills = options.fn(this).split(',');
+
+      skills.forEach(function(item){
+        newSkills += '<a data-category="' + item + '" href="#">  ' + item + '  </a>';
+        //TODO make anchors fire events particular to category
+      });
+      return newSkills;
     });
 
-    //append new project to project container
-    $('#project').append($projectArticle);
-    $projectArticle.removeClass('project');
-
-    //logic for styling each article so they are staggered alternating left or right.
-    if($projectArticle.prev('article').find('.title-date').hasClass('text-left')){
-      $projectArticle.find('.title-date').removeClass('text-left').addClass('text-right');
-      $image.removeClass('image-left').addClass('image-right');
-      $projectArticle.find('.demo').addClass('text-right');
-      $skillsGithub.removeClass('text-right').addClass('text-left');
-    }
-
-    //logic for modal event handler
-    var that = this;
-    $projectArticle.find('.modal-show').on('click', function(e){
-      e.preventDefault();
-      $('.modal').css('display', 'block');
-      $('.modal-content').append('<h1 class="header">'+that.title+'</h1><img src="' + that.img + '"/>');
-      //TODO add more content to modal.
-    });
+    return html;
   };
 
-  //logic for hiding modal on page click
-  //TODO fix logic so modal hides when clicking off of modal
-  $('.modal').on('click', function(e) {
-    $(this).css('display', 'none');
-    $('.modal-content').empty();
-  });
+  Project.prototype.alternate = function(){
+    var lastArticle = $('article:last');
+    if (lastArticle.prev('article').find('.title-date').hasClass('text-left')){
+      lastArticle.find('.title-date').removeClass('text-left').addClass('text-right');
+      lastArticle.find('img').removeClass('image-left').addClass('image-right');
+<<<<<<< HEAD
+      lastArticle.find('.skills-github').removeClass('text-right').addClass('text-left');
+=======
+      lastArticle.find('.skillsGithub').removeClass('text-right').addClass('text-left');
+>>>>>>> 64dde87a285aa575bff26a79f1c3dece888526fd
+    };
+  };
 
   //ajax call to portfolioitems.json data and Project construction and project template removal
   $.ajax({
@@ -74,9 +55,9 @@ $(function(){
       });
       data.forEach(function(item){
         var project = new Project(item.title, item.date, item.img, item.text, item.skills, item.url);
-        project.toHtml();
+        $('#project').append(project.toHtml());
+        project.alternate();
       });
-      $('.project').remove();
     }
   });
 });

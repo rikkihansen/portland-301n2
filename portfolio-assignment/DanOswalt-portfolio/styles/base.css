@@ -4,6 +4,9 @@
 
 body {
   background-color: #010101;
+  -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 main {
@@ -39,6 +42,13 @@ ul {
 li {
   list-style: none;
   display: inline-block;
+}
+
+input,
+textarea {
+  display: block;
+  margin: 5px;
+  width: 90%;
 }
 
 /***
@@ -103,11 +113,8 @@ li {
 
 }
 
-<<<<<<< HEAD
 /* when width is more than 500 */
 
-=======
->>>>>>> 0e86787855b76287c1c8eb3d3c1b9b33e9371644
 @media all and (min-width: 500px) {
   #nav-links li {
     display: inline-block;
