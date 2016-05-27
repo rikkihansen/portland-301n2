@@ -27,10 +27,14 @@ projectView.showNav = function() {
   $('#nav-trigger').on('click', function() {
     $('nav').toggle();
   });
-}
+};
 
-$(document).ready(function() {
+projectView.initIndexPage = function() {
+  //appends each project to the page
+  Project.all.forEach(function(a){
+    $('#projects').append(a.toHtml());
+  });
   projectView.handleMainNav();
   projectView.setTeasers();
   projectView.showNav();
-});
+};

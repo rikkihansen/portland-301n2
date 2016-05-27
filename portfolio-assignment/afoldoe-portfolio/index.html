@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/layout.css">
     <link rel="stylesheet" type="text/css" href="css/state.css">
+    <link rel="stylesheet" type="text/css" href="css/theme.css">
     <link rel="stylesheet" type="text/css" href="css/modules.css">
     <!-- projects template -->
     <script id="project-template" type="text/x-handlebars-template">
-      <article class="clearfix col-xs-4" data-category="{{category}}" data-author="{{author}}">
+      <article class="clearfix col-lg-4 text-xs-center" data-category="{{category}}" data-author="{{author}}">
           <header>
           <address><a href="{{projectURL}}"><h1>{{title}}</h1></a></address>
           <div class="byline">
-            By <address><a href="">Arielle</a></address>
             published <time pubdate datetime="{{publishedOn}}">{{publishStatus}}</time>
           </div>
         </header>
@@ -26,11 +26,12 @@
     </script>
     <!-- /projects template -->
   </head>
+
   <body>
     <!-- nav menu -->
     <nav>
       <ul class="nav">
-        <a class="nav-link" href="#projects"><li data-content="projects" class=".tab nav-item">PORTFOLIO</li></a>
+        <li data-content="projects" class=".tab nav-item"><a class="nav-link" href="#projects">PORTFOLIO</a></li>
         <li data-content="about" class=".tab nav-item"><a class="nav-link" href="#">ABOUT</a></li>
       </ul>
     </nav>
@@ -53,9 +54,8 @@
         </div>
         <!-- /header -->
       </section>
-      
       <!-- projects section -->
-      <section id="projects" class="tab-content">
+      <section id="projects" class="tab-content container">
         <div class="container text-xs-center">
           <div class="row">
           </div>
@@ -67,7 +67,7 @@
       <section id="about" class="tab-content container-fluid text-xs-center">
         <div class="row">
           <section class="col-xs-12">
-            <h3>You can find me in PDX:</h1>
+            <h1>You can find me in PDX:</h1>
             <ul class="list-unstyled list-group">
               <li class="list-group-item">bombing down Clinton St on my bike rain or shine! (Mostly rain)</li>
               <li class="list-group-item">Holing up at a coffee shop or Powell's and gorging on science fiction, comics, or graphic novels.</li>
@@ -79,9 +79,9 @@
       <!-- /about -->
 
       <!-- footer -->
-      <section class="container-fluid text-xs-center">
+      <section class="container-fluid text-xs-center" id="footer">
         <div class="row">
-          <footer class="text-center">
+          <footer>
             <a href="https://www.facebook.com/arielle.foldoe"><img src="img/facebook-logo.png" height="20px" alt="Facebook Logo"></a>
             <a href="https://twitter.com/a_foldoe"><img src="img/twitter-logo.png" height="20px "alt="Twitter Logo"></a>
             <a href="https://github.com/afoldoe"><img src="img/GitHub_Logo.png" height="20px" alt="GitHub Logo"></a>
@@ -95,9 +95,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-    <script type="text/javascript" src="eslintrc.js"></script>
     <script type="text/javascript" src="scripts/projectView.js"></script>
-    <script type="text/javascript" src="scripts/projects.js"></script>
     <script type="text/javascript" src="scripts/script.js"></script>
+    <script>
+     Project.fetchAll();
+   </script>
   </body>
 </html>

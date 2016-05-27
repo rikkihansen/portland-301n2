@@ -31,6 +31,16 @@
       </div>
     </script>
 
+    <!-- Handlebars Footer Template -->
+    <script id='footer-template' type="text/x-handlebars-template">
+      <ul id='footer-items'>
+        <li>&copy; {{copyrightYear}}<span class=footer-color> Dan Oswalt</span></li>
+        <li>Projects Listed: <span class=footer-color>{{projectCount}}</span></li>
+        <li>Published This Month: <span class=footer-color>{{last30DaysCount}}</span></li>
+        <li>Occurences of letter <span class=footer-color>'{{randomLetter}}'</span> in project descriptions: <span class=footer-color>{{randomLetterCount}}</span></li>
+      </ul>
+    </script>
+
     <main>
       <div id='form-and-preview-container'>
         <section id='new-project-form-module'>
@@ -61,21 +71,24 @@
           <hr>
           <h2>Preview:</h2>
           <hr>
-
-          <!-- Project-views load here -->
-          <section id='project-preview'>
-
-          </section>
           <section id="project-export">
             <label>
               Copy JSON or save to local storage
               <input type="text" readonly id="project-json" />
-              <div id="new-project-submit">save</div>
+              <div id="new-project-submit" class='btn'>save</div>
+              <a href='index.html'><div id="go-home" class='btn'>home</div></a>
             </label>
           </section>
+          <h2 class='save-msg'></h2>
+          <!-- Project-views load here -->
+          <section id='project-preview'>
 
+          </section>
         </aside>
       </div>
+
+      <footer id='site-footer'>
+      </footer>
 
     </main>
   </body>

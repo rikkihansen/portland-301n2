@@ -3,11 +3,10 @@ var projectView = {};
 // create tab views of content in #projects and #about
 projectView.handleMainNav = function() {
   $('.mainNav').on('click', 'li', function() {
+    $('.jumbotron').fadeTo(5000, 1);
     $('.page-content').hide();
-    $('main').find('[id="'+$(this).attr('data-section')+'"]').toggle();
-    $('html, body').animate({
-      scrollTop: parseInt($(this).offset().top)
-    }, 2000);
+    $('main').find('[id="'+$(this).attr('data-section')+'"]').fadeIn(5000);
+    projectView.scroll(this);
   });
 };
 
@@ -18,7 +17,7 @@ projectView.createTeaser = function() {
   $('.shrink').hide();
   $('.read-on').on('click', function(event) {
     event.preventDefault();
-    $(this).prev().find('*:nth-child(n)').show();
+    $(this).prev().find('*:nth-child(n)').slideDown(1500);
     $(this).hide();
     $(this).next().show();
   });
@@ -31,9 +30,19 @@ projectView.createTeaser = function() {
   });
 };
 
+projectView.scroll = function(tease) {
+  $('html, body').animate({
+    scrollTop: parseInt($(tease).offset().top)
+  }, 2000);
+};
+
 //call the functions
-$(document).ready(function() {
+projectView.initIndexPage = function(){
+  Project.all.forEach(function(a){
+    $('#projects').append(a.toHtml());
+  });
   $('.page-content').hide();
+  $('.jumbotron').fadeTo(15000, 0.0);
   projectView.handleMainNav();
   projectView.createTeaser();
-});
+};

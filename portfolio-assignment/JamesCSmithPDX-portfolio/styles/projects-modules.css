@@ -30,3 +30,9 @@
 time {
   font-size: .75em;
 }
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}

@@ -1,0 +1,11 @@
+INSERT INTO people (id, first, middle, last, dob, bio) VALUES (1000, 'Edgar', 'Allen', 'Poe', -5079081600000,
+  'Born January 19, 1809, Boston, Massachusetts, U.S. American short-story writer, poet, critic, and editor Edgar Allan Poe''s tales of mystery and horror initiated the modern detective story, and the atmosphere in his tales of horror is unrivaled in American fiction. His The Raven (1845) numbers among the best-known poems in national literature.');
+
+INSERT INTO people (id, first, middle, last, dob, bio) VALUES (1001, 'Emily', NULL, 'Dickinson', -4388313600000,
+  'Born on December 10, 1830, in Amherst, Massachusetts, Emily Dickinson left school as a teenager, eventually living a reclusive life on the family homestead. There, she secretly created bundles of poetry and wrote hundreds of letters. Due to a discovery by sister Lavinia, Dickinson''s remarkable work was published after her death—on May 15, 1886, in Amherst—and she is now considered one of the towering figures of American literature.');
+
+INSERT INTO people (id, first, middle, last, dob, bio) VALUES (1002, 'Mark', NULL, 'Twain', -4231411200000,
+  'Born on November 30, 1835, in Florida, Missouri, Samuel L. Clemens wrote under the pen name Mark Twain and went on to author several novels, including two major classics of American literature: The Adventures of Tom Sawyer and Adventures of Huckleberry Finn. He was also a riverboat pilot, journalist, lecturer, entrepreneur and inventor. Twain died on April 21, 1910, in Redding, Connecticut.');
+
+INSERT INTO people (id, first, middle, last, dob, bio) VALUES (1003, 'John', 'Kennedy', 'Toole', -1011110400000,
+  'John Kennedy Toole was born in New Orleans, Louisiana, in 1937. An intelligent and accomplished student, he made his first foray into writing during his senior year of high school, when he wrote a novel titled The Neon Bible. After college Toole was drafted into the Army and over the next two years began work on a new novel titled A Confederacy of Dunces. When he completed the novel but was unable to find a publisher, Toole grew increasingly depressed, becoming despondent and displaying highly erratic behavior. He later committed suicide in March 1969. A Confederacy of Dunces was published more than a decade later and in 1981 received the Pulitzer Prize for Literature.');

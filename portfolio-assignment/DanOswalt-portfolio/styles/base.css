@@ -2,6 +2,15 @@
  * Base rules
  **/
 
+ /*almost black:     #010101
+   red:              #AC1603
+   red-tinted white: #E8E2CC
+ */
+
+html, body {
+   height: 100%;
+}
+
 body {
   background-color: #010101;
   -webkit-box-sizing: border-box;
@@ -55,6 +64,21 @@ textarea {
  * Layout rules
  **/
 
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -100px;
+}
+
+header.title-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #010101;
+  width: 100%;
+  padding-bottom: 30px;
+  z-index: 1;
+}
+
 #title-headline {
   display: inline-block;
   padding: 0;
@@ -70,7 +94,8 @@ textarea {
 
 #nav-links li {
   background-color: #AC1603;
-  padding: 8px;
+  font-size: 90%;
+  padding: 6px;
 }
 
 #nav-links li:hover {
@@ -111,6 +136,10 @@ textarea {
     max-width: 40%;
   }
 
+  .page-wrap {
+    margin-top: 250px;
+  }
+
 }
 
 /* when width is more than 500 */
@@ -124,5 +153,9 @@ textarea {
 
   #about img {
     max-width: 20%;
+  }
+
+  .page-wrap {
+    margin-top: 200px;
   }
 }

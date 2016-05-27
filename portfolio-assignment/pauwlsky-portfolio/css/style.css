@@ -1,22 +1,14 @@
 
-<<<<<<< HEAD
 /*BASE*/
 html{
   font-size: 62.5%;
 }
-=======
->>>>>>> 64dde87a285aa575bff26a79f1c3dece888526fd
 
 body{
   margin: 0;
   padding: 0;
 }
 
-p{
-  font-size: 1.6rem;
-}
-
-<<<<<<< HEAD
 a{
   text-decoration: none;
   font-size: 1.6rem;
@@ -24,33 +16,6 @@ a{
 
 img{
   max-width: 100%;
-=======
-/*BASE STYLES*/
-
-html{
-  font-size: 62.5%;
-  background-color: #EFF0F1;
-}
-
-body{
-  margin: 0;
-  padding: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Istok Web', sans-serif;
-}
-
-p{
-  font-family: 'Lora', serif;
-  font-size: 1.6rem;
-  color: #214C3F;
->>>>>>> 64dde87a285aa575bff26a79f1c3dece888526fd
 }
 
 hr{
@@ -62,7 +27,6 @@ hr{
   padding: 10px;
 }
 
-<<<<<<< HEAD
 .text-right{
   text-align:right;
 }
@@ -72,18 +36,6 @@ hr{
 }
 
 footer{
-=======
-img{
-  max-width: 100%;
-}
-
-/*HEADER AND BODY*/
-
-.header-container{
-  border-radius: .3rem;
-  background-color: rgba(66, 84, 107, 0.14);
-  padding: 1% 5%;
->>>>>>> 64dde87a285aa575bff26a79f1c3dece888526fd
   display: flex;
   align-items: center;
   height: 6rem;
@@ -93,7 +45,7 @@ img{
 }
 
 article{
-  margin-top: 5%;
+  margin: 4% 2%;
   padding: 1%;
 }
 
@@ -101,37 +53,20 @@ article{
   float: left;
 }
 
-<<<<<<< HEAD
 .image-right{
   float: right;
 }
 
-=======
-.header{
-  font-weight:lighter;
-  letter-spacing: .2rem;
-  margin: 0 2%;
-  font-size: 4.0rem;
-  color: #2E6957;
-  text-align: center;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.sub-header{
-  font-size: 1.7rem;
-  font-weight:lighter;
-  letter-spacing: .2rem;
-  margin: 0 5%;
-  color: #2E6957;
-}
->>>>>>> 64dde87a285aa575bff26a79f1c3dece888526fd
 
 /*MODULES*/
 .header-container{
   padding: 1% 5%;
   display: flex;
   align-items: center;
+}
+
+.container-right{
+  justify-content: flex-end;
 }
 
 .nav-container{
@@ -141,10 +76,6 @@ article{
   display: flex;
   margin: 3% auto;
   border-radius: .3rem;
-<<<<<<< HEAD
-=======
-  background-color: rgba(66, 84, 107, 0.14);
->>>>>>> 64dde87a285aa575bff26a79f1c3dece888526fd
   padding: 1% 1%;
   text-align: center;
 }
@@ -159,14 +90,7 @@ nav li{
   width: 50%;
   height: 100%;
   list-style-type: none;
-<<<<<<< HEAD
   padding: 1.17%;
-=======
-  border: solid rgba(64, 61, 61, 0.09) .1rem;
-  padding: 1.17%;
-  border-radius: .2rem;
-  background-color: rgba(140, 195, 176, 0.14);
->>>>>>> 64dde87a285aa575bff26a79f1c3dece888526fd
   margin: 1%;
   font-size: 2.0rem;
 }
@@ -180,32 +104,15 @@ select{
   -webkit-appearance:none;
   padding:1.17%;
   width: 30%;
-<<<<<<< HEAD
   font-size: 1.5rem;
-=======
-  height: 55%;
-  font-size: 1.5rem;
-  color:  #437365;
-  background-color: rgba(140, 195, 176, 0.14);
-  border: solid rgba(64, 61, 61, 0.09) 1px;
-  background: url(../images/br_down.png) rgba(140, 195, 176, 0.14) no-repeat 95%;
->>>>>>> 64dde87a285aa575bff26a79f1c3dece888526fd
 }
 
 .title-date{
   padding: .1rem 2.0rem;
 }
 
-<<<<<<< HEAD
 .title-date h2{
   font-size: 3.0rem;
-=======
-article{
-  margin-top: 5%;
-  background-color: rgba(225, 225, 225, 0.64);
-  padding: 1%;
-  border-radius: .3rem;
->>>>>>> 64dde87a285aa575bff26a79f1c3dece888526fd
 }
 
 .body-text{
@@ -216,13 +123,8 @@ article{
   letter-spacing: .1rem;
 }
 
-<<<<<<< HEAD
 .skills-github{
   padding: .1rem 2.0rem;
-=======
-.text{
-  margin: 1%;
->>>>>>> 64dde87a285aa575bff26a79f1c3dece888526fd
 }
 
 .skills-github a{
@@ -234,7 +136,6 @@ article{
   margin: 1rem 0 0 0;
 }
 
-<<<<<<< HEAD
 .skills-github .skills{
   margin: 0 0 1rem 0;
 }
@@ -243,13 +144,6 @@ article{
   display: flex;
   max-height: 25.0rem;
   margin: 0 20px 50px 20px;
-=======
-a.show-more{
-  text-decoration: none;
-  font-size: 1.7rem;
-  letter-spacing: .1rem;
-  margin: 0 3%;
->>>>>>> 64dde87a285aa575bff26a79f1c3dece888526fd
 }
 
 .modal{
@@ -264,7 +158,6 @@ a.show-more{
   background-color: rgba(0,0,0,0.4);
 }
 
-<<<<<<< HEAD
 .modal-content{
   background-color: #fefefe;
   margin: auto;
@@ -285,26 +178,6 @@ footer h4{
 /*THEME*/
 html{
   background-color: #EFF0F1;
-=======
- .skills a{
-  text-decoration: none;
-  font-size: 1.7rem;
-  letter-spacing: .1rem;
-}
-
-hr{
-  border: .1rem solid #6F7367;
-  clear: both;
-}
-
-/*IMAGE STYLING*/
-
-
-.image{
-  display: flex;
-  max-height: 25.0rem;
-  margin: 0 20px 50px 20px;
->>>>>>> 64dde87a285aa575bff26a79f1c3dece888526fd
 }
 
 h1,
@@ -317,7 +190,7 @@ h6 {
 }
 
 p{
-  font-family: 'Lora', serif;
+  font: 1.8rem "HelveticaNeue", "Helvetica", "Arial", sans-serif;
   color: #214C3F;
 }
 
@@ -325,7 +198,6 @@ a{
   color: #6F7367;
 }
 
-<<<<<<< HEAD
 a:hover{
   color: #4D637C;
 }
@@ -337,28 +209,6 @@ a:hover{
 
 .nav-container{
   background-color: rgba(66, 84, 107, 0.14);
-=======
-/*DISCLAIMER!! USED CODE EXAMPLE FROM W3 SCHOOLS CAN EXPLAIN MODAL CODE THOUGH*/
-.modal{
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-.modal-content{
-  background-color: #fefefe;
-  margin: auto;
-  margin-top: 2%;
-  margin-bottom: 2%;
-  width: 60%;
-  padding: 2%;
->>>>>>> 64dde87a285aa575bff26a79f1c3dece888526fd
 }
 
 nav li{
@@ -384,6 +234,7 @@ article{
 }
 
 hr{
+  margin: 3rem 1.5rem;
   border: .1rem solid #6F7367;
 }
 
@@ -392,22 +243,12 @@ hr{
 }
 
 footer{
-<<<<<<< HEAD
-=======
-  display: flex;
-  align-items: center;
-  height: 6rem;
->>>>>>> 64dde87a285aa575bff26a79f1c3dece888526fd
   border: .1rem solid rgba(225, 225, 225, 0.64);
   border-radius: .1rem;
   background-color: rgba(225, 225, 225, 0.64);
 }
 
 footer h4{
-<<<<<<< HEAD
-=======
-  font-size: 2.2rem;
->>>>>>> 64dde87a285aa575bff26a79f1c3dece888526fd
   color: #6F7367;
 }
 
@@ -485,7 +326,6 @@ footer h4{
     width: 100%;
     text-align: center;
   }
-
 }
 
 @media screen and (max-width: 890px){

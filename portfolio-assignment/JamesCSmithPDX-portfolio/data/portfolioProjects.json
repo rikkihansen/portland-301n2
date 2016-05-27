@@ -1,0 +1,42 @@
+[
+  {
+    "title": "BusMall Market Analysis",
+    "projectType": "JavaScript",
+    "contributor": "James Smith",
+    "contributorUrl": "http://jamescsmithpdx.github.io/market-analysis-app/",
+    "postDate": "2016-04-17",
+    "imgSrc": "imgAssets/busmall.png",
+    "imgAlt": "BusMall",
+    "projDescription": "<p>The problem domain was to build a market research tool that show user three images and they would vote on their favorite by clicking on the image.</p><p>I used splice on the image array to keep from showing the user the same images consecutively. I also kept track of votes and displayed them in a chart via Canvasjs library.< /p><p>The scope changed to track all votes so a marketer could get results from multiple users. To accomplish this I implemented local storage and again used Canvasjs to show all the results in local storage in a bar chart.</p>"
+  },
+  {
+    "title": "Salmon Cookies",
+    "projectType": "JavaScript",
+    "contributor": "James Smith",
+    "contributorUrl": "http://jamescsmithpdx.github.io/cookie-stand/",
+    "postDate": "2016-04-04",
+    "imgSrc": "imgAssets/cookie-store.png",
+    "imgAlt": "Salmon Cookies",
+    "projDescription": "<p>The problem domain was to build a web app that helps the owner of cookie store estimate the amount of ingredients he needs. I was given min and max customers per hour and average cookies bought per customer for each store.</p><p>I built a simulator using random customer numbers between the min and max customers per hour for each store. I multipled this by the average sale per customer.</p><p>The sales simulations are displayed in a table dynamically generated on the web page via raw Javascript.< /p><p>I included a way for store owner Sam to add more stores as his business grows. There is a form with an event listener that as for store name, hourly min and max customer visits, and average sales per customer. When Sam submits the information, a new row is added to the table with the new store simulaitons.</p>"
+  },
+  {
+    "title": "Adventure Finders",
+    "projectType": "JavaScript",
+    "contributor": "James Smith",
+    "contributorUrl": "http://rikkihansen.github.io/adventureFinders/",
+    "postDate": "2016-05-01",
+    "imgSrc": "imgAssets/adventurefinders.png",
+    "imgAlt": "Adventure Finders",
+    "projDescription": "<p>This was a final group project at Code Fellow. I worked with Cass Burt and Rikki Hansen to build our site Adventure Finders.</p><p>Our idea was to build a site where users can answer a series of fun questions so we could recommend a camping location for them.</p><p>The project had very open ended requirements:< /p><ul><li>Each person must make meaningful contributions in HTML, CSS, and JavaScript.</li> <li>Your web site must have at least 3 interlinked pages and clear navigation.</li><li>Your web site must have at least 2 pages that accept and process user input.< /li><li>Your web site state must persist between page reloads.</li><li>Your web site must be deployed live on the Internet.</li></ul> <p>Most of our work was in raw JavaScript to build outr camp finder. We built an object construcotr and then objects for each of the camp sites. We built a questionairre to ask about the types of things that important to the user. The questions were used to filter our camp array.</p><p>I used Leafletjs mapping library with Mapbox to add show on the map where each campsite was located. As the camp aray was filtered we removed icons from the map. State was stored in local storage so that the user could leave and return to the same place in browser.</p><p>I also added a form so users could add campgrounds to our site. This data is stored in local storage. We also included a home and about page to give the user informaiton about our service and ourselves.</p>"
+  },
+  {
+    "title": "TrajectoryDS Website",
+    "projectType": "WordPress",
+    "contributor": "James Smith",
+    "contributorUrl": "https://TrajectoryDS.com",
+    "postDate": "2016-05-10",
+    "imgSrc": "imgAssets/trajectoryds.png",
+    "imgAlt": "TrajectoryDS.com",
+    "projDescription": "<p>I needed to create a quick one page landing page before attending the WebVisions conference.</p><p>Given the quick turn-around, I customized a WordPress template.< /p><p>I used it to create a one page site for my consulting business. The site provides details the services I provide, including my new development skills.</p>"
+  }
+]

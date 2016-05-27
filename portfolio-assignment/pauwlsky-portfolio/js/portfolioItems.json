@@ -28,7 +28,7 @@
 "date":"04/03/2016",
 "img":"images/skaterportland.png",
 "text":"<p>My most recent project for the Code Fellows 301 entrance test, by far the best programming experience I've had so far.</p><p>I sat in on a 201 course where Al Shae described the students gave the students their final project. I decided to take on basically the same assignment the students were given and code my own app within a week.The project took me more time than that of course. Orignially I coded only in JavaScript, now I'm in the process of modularizing the code with requirejs and rewriting all of it using jQuery as well.</p><p>I have the goal to keep working on this project and add a database to store skate locations. Lots of user interaction to be modified as well. One of my favorite parts of this project was implementing the mobile responsive CSS and JS. Try resizing the window and using the iPhone window in the developer toos :) Feedback is appreciated!</p>",
-"skills":["Local Storage", "jQuery", "APIs"],
+"skills":[ "localStorage", "jQuery", "APIs"],
 "url": "http://pauwlsky.github.io/code_fellows_challenge/"
 }
 ]

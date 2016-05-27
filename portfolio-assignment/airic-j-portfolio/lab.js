@@ -3,7 +3,7 @@ $('document').ready(function () {
 	// hide projects at initial page load
   $('section').not('#about').hide();
 
-  var projects = [];
+  projectsArray = [];
 
   function Project(x) {
     this.title = x.title;
@@ -21,12 +21,15 @@ $('document').ready(function () {
     return(html);
   };
 
-  projectData.forEach(function(projectData){
-    projects.push(new Project(projectData));
-  });
-
-  projects.forEach(function(project){
-    $('#projects').append(project.toHtml());
+  $.getJSON('data/projectData.json', function(projectJSON){
+    // put each JSON element into the projects array after making it a Project object
+    projectJSON.forEach(function(project){
+      projectsArray.push(new Project(project));
+    });
+    // turn each Project object into HTML, append to the projects container
+    projectsArray.forEach(function(project){
+      $('#projects').append(project.toHtml());
+    });
   });
 
 	//sticky nav
@@ -51,7 +54,6 @@ $('document').ready(function () {
   var weatherAPI = 'http://api.wunderground.com/api/c57bffbbb79db788/geolookup/conditions/q/OR/Portland.json';
   var successFunction = function(data) {
     $('.weather').append((' where it is ' + Math.round(data.current_observation.temp_f) + '&deg; F') + (' and ' + data.current_observation.weather).toLowerCase());
-    console.log(data.current_observation.temp_f);
   };//end of weather callback
   $.getJSON(weatherAPI, successFunction);
 
