@@ -1,179 +1,243 @@
-/*****
-* Project
-***/
+(function() {
 
-function Project (opts) {
-  this.title = opts.title;
-  this.description = opts.description;
-  this.details = opts.details;
-  this.publishedOn = opts.publishedOn;
-  this.publishedBy = opts.publishedBy;
-  this.url = opts.url;
-  this.codeUrl = opts.codeUrl;
-  this.screenshot = opts.screenshot;
-}
+  /*****
+  * Project
+  ***/
 
-Project.prototype.toHtml = function() {
-  var appTemplate = $('#project-template').html();
-  var compileTemplate = Handlebars.compile(appTemplate);
-  return compileTemplate(this);
-};
-
-Handlebars.registerHelper('daysAgo', function(person) {
-  return parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago';
-});
-
-/*****
-* ProjectModule
-***/
-
-var ProjectModule = {};
-
-ProjectModule.init = function() {
-  var self = this;
-
-  if(localStorage.data){
-    self.loadFromLocalStorage('data');
-    console.log('fetched from local storage:');
-    console.log(self.data);
-    self.loadProjects();
-  } else {
-    $.getJSON('data/projectJSON.json')
-      .done(function(json){
-        self.data = json.data;
-        self.loadProjects();
-        self.saveToLocalStorage(self.data);
-        console.log('JSON loaded');
-      }).fail(function(){
-        self.data = [];
-        console.log('JSON did not load');
-      });
+  function Project (opts) {
+    this.title = opts.title;
+    this.description = opts.description;
+    this.details = opts.details;
+    this.publishedOn = opts.publishedOn;
+    this.publishedBy = opts.publishedBy;
+    this.url = opts.url;
+    this.codeUrl = opts.codeUrl;
+    this.screenshot = opts.screenshot;
   }
-};
 
-ProjectModule.loadProjects = function() {
-  //sort the data array
-  this.data.sort(function(a,b) {
-    return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
+  Handlebars.registerHelper('daysAgo', function(person) {
+    return parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago';
   });
 
-  //create new projects from projectData and add to html
-  this.data.forEach(function(projectData) {
-    var newProject = new Project(projectData);
-    $('#projects-module').append(newProject.toHtml());
-  });
+  /*****
+  * ProjectModule
+  ***/
 
-};
+  var ProjectModule = {
 
-ProjectModule.saveToLocalStorage = function(data) {
-  console.log('save data');
-  localStorage.setItem('data', JSON.stringify(data));
-};
+    /*******
+     * init loads data either from localstorage or from file
+     ***/
 
-ProjectModule.clearFromLocalStorage = function(data) {
-  console.log('clear data');
-  localStorage.removeItem(data);
-};
+    init : function() {
+      var self = this;
+      var randomLetter = self.getRandomLetter();
 
-ProjectModule.loadFromLocalStorage = function(data) {
-  console.log('load data');
-  this.data = JSON.parse(localStorage.getItem(data));
-};
+      if(localStorage.data){
+        self.loadFromLocalStorage('data');
+        self.loadProjects();
+      } else {
+        $.getJSON('data/projectJSON.json')
+          .done(function(json){
+            self.data = json.data;
+            self.loadProjects();
+            self.saveToLocalStorage(self.data);
+          }).fail(function(){
+            self.data = [];
+          });
+      }
+
+      self.loadFooterFun({
+        copyrightYear : new Date().getFullYear(),
+        projectCount : self.data.length,
+        last30DaysCount : self.getLast30DaysCount(),
+        randomLetter: randomLetter,
+        randomLetterCount : self.getRandomLetterCountFromProjects(randomLetter)
+      });
+
+    },
+
+    loadFooterFun : function(footerData) {
+      var html = ProjectModule.compileHandlebarsTemplate(footerData, '#footer-template');
+      ViewHandler.attachHtmlToParent('#site-footer', html);
+    },
+
+    getLast30DaysCount : function() {
+      return this.data.map(function(project){
+        return project.publishedOn;
+      })
+      .filter(this.publishedInLast30Days)
+      .length;
+    },
+
+    publishedInLast30Days : function (dateString) {
+      return parseInt((new Date() - new Date(dateString)) / 1000 / 60 / 60 / 24) <= 30;
+    },
+
+    getRandomLetter : function () {
+      var alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+      return alphabet[Math.floor(Math.random() * 26)];
+    },
+
+    getLetterCount : function(letter, str) {
+      var regex = new RegExp('[' + letter + letter.toUpperCase() + ']', 'g');
+      var matches = str.match(regex) || [];
+      return matches.length;
+    },
+
+    getRandomLetterCountFromProjects : function(letter) {
+      var self = this;
+      var str = self.data.reduce( function(total, project) {
+        total += project.title || '';
+        total += project.description || '';
+        total += project.details || '';
+        return total;
+      } , '');
+      return self.getLetterCount(letter, str);
+    },
+
+    /*******
+     * loadProjects sorts and appends to the projects module
+     ***/
+
+    loadProjects : function() {
+
+      this.data.sort(function(a,b) {
+        return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
+      });
+
+      this.data.forEach(function(projectData) {
+        var project = new Project(projectData);
+        var html = ProjectModule.compileHandlebarsTemplate(project, '#project-template');
+        ViewHandler.attachHtmlToParent('#projects-module', html);
+      });
+
+    },
+
+    compileHandlebarsTemplate : function(obj, templateElementId) {
+      var appTemplate = $(templateElementId).html();
+      var compileTemplate = Handlebars.compile(appTemplate);
+      return compileTemplate(obj);
+    },
+
+    saveToLocalStorage : function(data) {
+      console.log('save data');
+      localStorage.setItem('data', JSON.stringify(data));
+    },
+
+    clearFromLocalStorage : function(data) {
+      console.log('clear data');
+      localStorage.removeItem(data);
+    },
+
+    loadFromLocalStorage : function(data) {
+      console.log('load data');
+      this.data = JSON.parse(localStorage.getItem(data));
+    }
+  };
 
 /***
  * ViewHandler
  **/
 
-var ViewHandler = {};
+  var ViewHandler = {
 
-ViewHandler.handleTabClicks = function() {
-  $('#nav-links').on('click', 'li.tab', function(e){
-    e.preventDefault();
-    var dataContent = $(this).attr('data-content');
-    $('.tab-view').fadeOut('fast');
-    $('#' + dataContent).fadeIn('fast');
-  });
-};
+    init : function() {
+      this.initNewProject();
+      this.handleTabClicks();
+      this.handleNewProjectSubmit();
+      this.handleJSONSelection();
+    },
 
-ViewHandler.initNewProject = function() {
-  var self = this;
-  $('#new-project').on('keyup', 'input, textarea', self.createProjectFromForm);
-};
+    handleTabClicks : function() {
+      $('#nav-links').on('click', 'li.tab', function(e){
+        e.preventDefault();
+        var dataContent = $(this).attr('data-content');
+        $('.tab-view').fadeOut('fast');
+        $('#' + dataContent).fadeIn('fast');
+      });
+    },
 
-ViewHandler.handleJSONSelection = function() {
-  $('#project-json').on('focus', function() {
-    this.select();
-  });
-};
+    initNewProject : function() {
+      var self = this;
+      $('#new-project').on('keyup', 'input, textarea', self.createProjectFromForm);
+    },
 
-ViewHandler.createProjectFromForm = function() {
-  var project;
+    handleJSONSelection : function() {
+      $('#project-json').on('focus', function() {
+        this.select();
+      });
+    },
 
-  $('#project-preview').empty();
-  project = new Project({
-    title: $('#project-title').val(),
-    description: $('#project-description').val(),
-    details: $('#project-details').val(),
-    publishedBy: $('#project-publishedBy').val(),
-    publishedOn: new Date(),
-    url: $('#project-url').val(),
-    codeUrl: $('#project-codeUrl').val(),
-    screenshot: ''
-  });
+    attachHtmlToParent : function(parentSelector, html) {
+      $(parentSelector).append(html);
+    },
 
-  $('#project-preview').append(project.toHtml());
-  $('#project-json').val(JSON.stringify(project));
-};
+    createProjectFromForm : function() {
+      var project, html;
 
-ViewHandler.handleNewProjectSubmit = function() {
-  var self = this;
-  var $projectJSON = $('#project-json').val();
+      $('#project-preview').empty();
+      project = new Project({
+        title: $('#project-title').val(),
+        description: $('#project-description').val(),
+        details: $('#project-details').val(),
+        publishedBy: $('#project-publishedBy').val(),
+        publishedOn: new Date(),
+        url: $('#project-url').val(),
+        codeUrl: $('#project-codeUrl').val(),
+        screenshot: ''
+      });
 
-  $('#new-project-submit').on('click', function(){
-    if(self.formIsNotEmpty()) {
-      var newData = $projectJSON;
-      ProjectModule.data.push[newData];
-      ProjectModule.saveToLocalStorage('data');
-      self.clearInputFields();
-    } else {
-      //don't do anything
-      //error msg?
+      html = ProjectModule.compileHandlebarsTemplate(project, '#project-template');
+      ViewHandler.attachHtmlToParent('#project-preview', html);
+      $('#project-json').val(JSON.stringify(project));
+    },
+
+    handleNewProjectSubmit : function() {
+      var self = this;
+
+      $('#new-project-submit').on('click', function(){
+        if(self.formIsNotEmpty()) {
+          var newProject = JSON.parse($('#project-json').val());
+          ProjectModule.data.push(newProject);
+          ProjectModule.saveToLocalStorage(ProjectModule.data);
+          self.clearInputFields();
+          $('#project-preview').empty();
+          ViewHandler.showSaveMessage('Saved!');
+        } else {
+          // $('.save-msg').show().html('<h2 class="msg">Form is empty!</h2>').fadeOut(800);
+          ViewHandler.showSaveMessage('Form is empty!');
+          console.log('form is empty!');
+        }
+      });
+    },
+
+    showSaveMessage : function(msg) {
+      $('.save-msg').show().html('<h2 class="msg">' + msg + '</h2>').fadeOut(800);
+    },
+
+    clearInputFields : function() {
+      $('#project-json').val('');
+      $('#new-project :input').val('');
+    },
+
+    formIsNotEmpty : function() {
+      var isNotEmpty = false;
+      $('#new-project :input').each(function(){
+        if($.trim($(this).val()) !== '') {
+          isNotEmpty = true;
+          return;
+        };
+      });
+      return isNotEmpty;
     }
-  });
-};
-
-ViewHandler.clearInputFields = function() {
-  $projectJSON.val('');
-  $('#new-project :input').val('');
-};
-
-//TODO: run this on change also, so json field and preview are cleared if empty
-ViewHandler.formIsNotEmpty = function() {
-  //check if any inputs have characters
-  var isNotEmpty = false;
-  $('#new-project :input').each(function(){
-    //if the trimmed input is a character, immediately break out and set to false
-    if($.trim($(this).val()) !== '') {
-      isNotEmpty = true;
-      return;
-    };
-  });
-  return isNotEmpty;
-};
-
-ViewHandler.init = function() {
-  this.initNewProject();
-  this.handleTabClicks();
-  this.handleNewProjectSubmit();
-  this.handleJSONSelection();
-};
+  };
 
 /****
  * Code to run on page load
  **/
 
-$(function() {
   ProjectModule.init();
   ViewHandler.init();
-  // ProjectModule.clearFromLocalStorage('data');
-});
+
+})();

@@ -1,52 +1,74 @@
-console.log(Projects);
 
-// NOTE: MOST OF THE FUNCTIONS AND JQUERY STRUCTURE THAT I USED ARE HEAVILY
-// BASED-ON THE PAIR-PROGRAMMING PROJECT TEMPLATE. I REWROTE ALL OF IT BY HAND TO LEARN,
-// OMITTED ELEMENTS NOT NECESSARY TO THIS PORTFOLIO, ALTERED MOST NAMING SYSTEMS
-// AS WELL AS ADDED NEW ELEMENTS AND PROPERTIES AS NEEDED.
 
-Projects.all = [];
+(function (module) {
+  Projects.all = [];
 
-function Projects(input) {
-  this.title = input.title;
-  this.role = input.role;
-  this.projectUrl = input.projectUrl;
-  this.completionDate = input.completionDate;
-  this.body = input.body;
+  function Projects(input) {
+    this.title = input.title;
+    this.role = input.role;
+    this.projectUrl = input.projectUrl;
+    this.completionDate = input.completionDate;
+    this.DaystoComplete = input.DaystoComplete;
+    this.body = input.body;
 
-}
+  }
 
-Projects.prototype.toHtml = function() {
+  //test
+
+  Projects.prototype.toHtml = function() {
   // var $newProject = $('article.template').clone();
 
-  var articleTemplate = $('#template').html();
-  var compiledTemplate = Handlebars.compile(articleTemplate);
+    var articleTemplate = $('#template').html();
+    var compiledTemplate = Handlebars.compile(articleTemplate);
 
-  this.daysAgo = parseInt((new Date() - new Date(this.completionDate)) / 60 / 60 / 24 / 1000);
-  this.publishStatus = this.completionDate ? 'published ' + this.daysAgo + ' days ago' : '(draft)';
+    this.daysAgo = parseInt((new Date() - new Date(this.completionDate)) / 60 / 60 / 24 / 1000);
+    this.publishStatus = this.completionDate ? 'published ' + this.daysAgo + ' days ago' : '(draft)';
 
-  return compiledTemplate(this);
+    return compiledTemplate(this);
 
-};
+  };
 
 
-Projects.loadAll = function(datas) {
-  datas.forEach(function(i) {
-    Projects.all.push(new Projects(i));
-  });
-};
+  Projects.loadAll = function(datas) {
+    Projects.all = datas.map(function(i) { // Use map() to push rawData into a new array object
+      return new Projects(i);
+    });
+  };
+
+
+  Projects.fetchall = function(callBack) {
+
+    if (localStorage.rawData) {
+      Projects.loadAll(
+         JSON.parse(localStorage.getItem('rawData'))
+          );
+      callBack();
+    }
+    else {
+      $.getJSON('data/blogobjects.json', function(datas) {
+        localStorage.setItem('rawData', JSON.stringify(datas));
+        Projects.loadAll(datas);
+        callBack();
+      });
+    }
+  };
+
+  Projects.allDays = function() {   // I decided to REDUCE(); a Property,
+    // which I just created and added to my Object, that contains
+    //the theoretical number of class days that it took to complete all the projects.
+    //This is then placed in the footer of the page.
+    return Projects.all.map(function(project) {
+      return project.DaystoComplete;})
+      .reduce(function(sum, i) {
+        return sum + i;
+      });
+  };
+
+
+  module.Projects = Projects;
+})(window);
 
 Projects.fetchall = function() {
-  //
-  // $.ajax({
-  //   type: 'GET',
-  //   url: 'http://rest.learncode.academy/api/aaroy/woo',
-  //   success: function(data) {
-  //     Projects.loadAll(data);
-  //     localStorage.setItem('tawData', JSON.stringify(data));
-  //     console.log('This ajax works', data); //returns friend id#1
-  //   }
-  // });
 
   if (localStorage.rawData) {
     Projects.loadAll(
@@ -56,10 +78,10 @@ Projects.fetchall = function() {
   }
   else {
     $.getJSON('data/blogobjects.json', function(datas) {
-      Projects.loadAll(datas);
-      console.log(datas);
       localStorage.setItem('rawData', JSON.stringify(datas));
+      Projects.loadAll(datas);
+      projectView.initIndexPage();
     });
-    projectView.initIndexPage();
+
   }
 };

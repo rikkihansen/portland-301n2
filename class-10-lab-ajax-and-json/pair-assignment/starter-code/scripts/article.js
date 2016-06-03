@@ -38,8 +38,8 @@ Article.loadAll = function(rawData) {
 
   rawData.forEach(function(ele) {
     Article.all.push(new Article(ele));
-  })
-}
+  });
+};
 
 // This function will retrieve the data from either a local or remote source,
 // and process it, then hand off control to the View.

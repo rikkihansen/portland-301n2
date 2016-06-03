@@ -9,62 +9,74 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/modules.css">
 
+    <!-- Handlebars Project Template -->
+    <script id='project-template' type='text/template'>
+      <div class='project four columns'>
+        <header>
+          <h2 class='title'><a class='project-link' href={{url}} target="_blank">{{title}}</a></h2><!--project.title, project.url-->
+          <p class='description'>{{description}}</p><!--project.description-->
+          <div class='byline'>
+            <span class='author'>{{publishedBy}}</span><!--project.publishedBy-->
+            published this <time pubdate datetime={{publishedOn}}>{{daysAgo}}</time><!--project.publishedOn-->
+          </div>
+          <br>
+          <section class='details-container'>
+            <p class='details'>{{details}}</p><!--project.details-->
+            <p><a class='code-link' href={{codeUrl}} target="_blank">See Code</a></p><!--project.codeUrl-->
+            <img src={{screenshot}} alt='{{screenshot}}'><!--project.screenshot-->
+            <br>
+            <br>
+          </section>
+        </header>
+      </div>
+    </script>
+
+    <!-- Handlebars Footer Template -->
+    <script id='footer-template' type="text/x-handlebars-template">
+      <ul id='footer-items'>
+        <li>&copy; {{copyrightYear}}<span class=footer-color> Dan Oswalt</span></li>
+        <li>Projects Listed: <span class=footer-color>{{projectCount}}</span></li>
+        <li>Published This Month: <span class=footer-color>{{last30DaysCount}}</span></li>
+        <li>Occurences of letter <span class=footer-color>'{{randomLetter}}'</span> in project descriptions: <span class=footer-color>{{randomLetterCount}}</span></li>
+      </ul>
+    </script>
+
   </head>
 
   <body>
     <main>
+      <!-- 'page wrap' is for the css-tricks sticky footer solution -->
+      <div class='page-wrap'>
+        <header class='title-header'>
+          <h1 id='title-headline'>Dan Oswalt</h1>
+          <nav id='nav-links'>
+            <ul>
+              <a href=''><li class="tab" data-content="projects-module">Home</li><a>
+              <a href=''><li class="tab" data-content="about">About</li><a>
+              <a href='https://github.com/DanOswalt' target="_blank" ><li>GitHub</li><a>
+              <a href='' target="_blank" ><li>Twitter</li><a>
+              <a href='' target="_blank" ><li>LinkedIn</li><a>
+            </ul>
+          </nav>
+        </header>
 
-      <header>
-        <h1 id='title-headline'>Dan Oswalt</h1>
-        <nav id='nav-links'>
-          <ul>
-            <a href=''><li class="tab" data-content="projects-module">Home</li><a>
-            <a href=''><li class="tab" data-content="about">About</li><a>
-            <a href='https://github.com/DanOswalt' target="_blank" ><li>GitHub</li><a>
-            <a href='' target="_blank" ><li>Twitter</li><a>
-            <a href='' target="_blank" ><li>LinkedIn</li><a>
-          </ul>
-        </nav>
+        <!-- Project-views load here -->
+        <section id='projects-module' class='tab-view'>
 
-      </header>
+        </section>
 
-      <!-- Project-views load here -->
-      <section id='projects-module' class='tab-view'>
-
-        <!-- Handlebars Project Template -->
-        <script id='project-template' type='text/template'>
-          <div class='project'>
-            <header>
-              <h2 class='title'><a class='project-link' href={{url}} target="_blank">{{title}}</a></h2><!--project.title, project.url-->
-              <p class='description'>{{description}}</p><!--project.description-->
-              <div class='byline'>
-                <span class='author'>{{publishedBy}}</span><!--project.publishedBy-->
-                published this <time pubdate datetime={{publishedOn}}>{{daysAgo}}</time><!--project.publishedOn-->
-              </div>
-              <br>
-              <section class='details-container'>
-                <p class='details'>{{details}}</p><!--project.details-->
-                <p><a class='code-link' href={{codeUrl}} target="_blank">See Code</a></p><!--project.codeUrl-->
-                <img src={{screenshot}} alt='{{screenshot}}'><!--project.screenshot-->
-                <br>
-                <br>
-              </section>
-            </header>
+        <!-- about tab content -->
+        <section id='about' class='tab-view'>
+          <div class='about-container'>
+            <img src='img/profilepic.jpeg'>
+            <p>Some info about me!</p>
+            <p>Fascinating information Fascinating information Fascinating information Fascinating information Fascinating information  </p>
           </div>
-        </script>
-      </section>
+        </section>
+      </div><!-- end page wrap -->
 
-      <!-- about tab content -->
-      <section id='about' class='tab-view'>
-        <div class='about-container'>
-          <img src='img/profilepic.jpeg'>
-          <p>Some info about me!</p>
-          <p>Fascinating information Fascinating information Fascinating information Fascinating information Fascinating information  </p>
-        </div>
-      </section>
-
-      <footer>
-      &copy; 2016 Dan Oswalt <!--want this to be sticky-->
+      <!-- Dynamic foot loads here -->
+      <footer id='site-footer'>
       </footer>
 
     </main>

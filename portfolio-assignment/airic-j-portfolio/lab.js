@@ -3,8 +3,7 @@ $('document').ready(function () {
 	// hide projects at initial page load
   $('section').not('#about').hide();
 
-  var projects = [];
-
+// project constructor function
   function Project(x) {
     this.title = x.title;
     this.date = x.date;
@@ -13,6 +12,7 @@ $('document').ready(function () {
     this.image = x.image;
   }
 
+// Project function method for project to HTML
   Project.prototype.toHtml = function() {
     // use handlebars
     var templateScript = $('#projectTemplate').html();
@@ -21,18 +21,20 @@ $('document').ready(function () {
     return(html);
   };
 
-  projectData.forEach(function(projectData){
-    projects.push(new Project(projectData));
-  });
-
-  projects.forEach(function(project){
-    $('#projects').append(project.toHtml());
+// ajax call for project data, map to array and append as HTML to page
+  $.getJSON('data/projectData.json', function(projectJSON){
+    // put each JSON element into the projects array after making it a Project object
+    console.log(projectJSON);
+    projectsArray = projectJSON.map(function(project){
+      return (new Project(project));
+    }).forEach(function(project){
+      $('#projects').append(project.toHtml());
+    });
   });
 
 	//sticky nav
-
   var topOfNav = $('.nav').offset().top;
-  var stickyNav = function() {
+  function stickyNav() {
     var scrollTop = $(window).scrollTop();
     if (scrollTop > topOfNav) {
       $('nav').addClass('stickyNav').removeClass('nav');
@@ -40,8 +42,6 @@ $('document').ready(function () {
       $('nav').removeClass('stickyNav').addClass('nav');
     }
   };
-
-  stickyNav();
 
   $(window).scroll(function() {
     stickyNav();
@@ -51,13 +51,11 @@ $('document').ready(function () {
   var weatherAPI = 'http://api.wunderground.com/api/c57bffbbb79db788/geolookup/conditions/q/OR/Portland.json';
   var successFunction = function(data) {
     $('.weather').append((' where it is ' + Math.round(data.current_observation.temp_f) + '&deg; F') + (' and ' + data.current_observation.weather).toLowerCase());
-    console.log(data.current_observation.temp_f);
   };//end of weather callback
   $.getJSON(weatherAPI, successFunction);
 
 
 	// change visible tab by click on nav links
-
   $('nav a').on('click', function() {
     $tabClicked = $(this).data('tab');
     $(this).addClass('selected').siblings().removeClass('selected');
@@ -65,4 +63,4 @@ $('document').ready(function () {
     $('#' + $tabClicked).show();
   });
 
-});
+}); // end iffe

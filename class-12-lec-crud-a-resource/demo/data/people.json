@@ -1,0 +1,18 @@
+[
+  {
+    "id" : 1001,
+    "first" : "Edgar",
+    "middle" : "Allan",
+    "last" : "Poe",
+    "dob" : -5079081600000,
+    "bio" : "Born January 19, 1809, Boston, Massachusetts"
+  },
+  {
+    "id" : 1002,
+    "first" : "Roger",
+    "middle" : "Allan",
+    "last" : "Poe",
+    "dob" : -5079086500000,
+    "bio" : "Born January 19, 1819, Boston, Massachusetts"
+  }
+]

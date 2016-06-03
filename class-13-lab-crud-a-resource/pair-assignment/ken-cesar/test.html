@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Web SQL Test</title>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+        db.transaction(function (tx) {
+           tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log)');
+           tx.executeSql('INSERT INTO LOGS (id, log) VALUES (1, "foobar")');
+           tx.executeSql('INSERT INTO LOGS (id, log) VALUES (2, "logmsg")');
+        });
+        db.transaction(function (tx) {
+           tx.executeSql('SELECT * FROM LOGS', [], function (tx, results) {
+           var len = results.rows.length, i;
+           msg = "<p>Found rows: " + len + "</p>";
+           document.querySelector('#status').innerHTML +=  msg;
+           for (i = 0; i < len; i++){
+              console.log(results.rows.item(i).log );
+           }
+         }, null);
+        });
+    });
+    </script>
+</head>
+<body id="status">
+</body>
+</html>

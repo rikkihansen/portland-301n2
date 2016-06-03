@@ -5,7 +5,9 @@ body {
 nav {
   display: none;
 }
-
+footer a {
+  padding: 1rem;
+}
 label[for="nav-trigger"] {
   position: fixed;
   top: 15px;
@@ -28,6 +30,24 @@ label[for="nav-trigger"] {
   right: 0;
   bottom: 0;
   left: 0;
+}
+.nav li {
+  display: inline;
+}
+.nav a {
+  color: #000;
+  padding: .4rem;
+  margin-top: 1.25rem;
+  font-family: avenir, helvetica, roboto, arial, sans-serif;
+}
+.nav a:hover {
+  color: #fff;
+}
+li[data-content="projects"] {
+  margin-left: 2rem;
+}
+li[data-content="about"] {
+  margin-left: 10rem;
 }
 .nav-trigger {
   position: absolute;
@@ -53,15 +73,25 @@ label[for="nav-trigger"] {
   flex-direction: column;
   align-items: center;
   position: relative;
-  height: 50%;
+  height: 65%;
+  margin-bottom: 3rem;
+}
+#footer {
+  margin-top: 2.5rem;
 }
 @media only screen and (min-width : 768px) and (max-width : 1400px) {
   .nav {
     height: 100%;
   }
+  .nav li {
+    display: block;
+  }
   .nav-trigger + label, .site-wrap {
       transition: left 0.2s;
       transition: top 0s;
+  }
+  li[data-content="about"] {
+    margin-left: 2rem;
   }
   #header {
     height: 75%;

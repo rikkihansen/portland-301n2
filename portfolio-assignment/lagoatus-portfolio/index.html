@@ -70,7 +70,8 @@
             </section>
         </section>
     </main>
-    <footer>
+    <footer id="stats">
+        <dt>These projects took<span class="words"></span> class days to complete.</dd> <br>
         &copy; 2015 Aaron Beerman | Portfolio
     </footer>
 
@@ -81,7 +82,7 @@
     <script src="blog.js"></script>
     <script src="view.js"></script>
     <script>
-      Projects.fetchall();
+      Projects.fetchall(projectView.initIndexPage);
     </script>
 </body>
 

@@ -14,3 +14,7 @@ node_modules
 
 # IntelliJ Stuff
 .idea/
+
+# Sublime
+*.sublime-project
+*.sublime-workspace

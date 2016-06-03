@@ -3,6 +3,7 @@
   padding: 0;
   text-align: center;
   color: #E8E2CC;
+  width: 100%;
 }
 
 .byline {
@@ -15,7 +16,7 @@
   margin: 50px auto;
   padding: 5px 10px;
   max-width: 600px;
-  min-width: 350px;
+  min-width: 250px;
 }
 
 .title {
@@ -24,6 +25,10 @@
 
 .title,
 .author {
+  color: #AC1603;
+}
+
+.msg {
   color: #AC1603;
 }
 
@@ -46,7 +51,7 @@
   width: 400px;
 }
 
-#new-project-submit {
+.btn {
   display: inline-block;
   font-weight: bold;
   color: #010101;
@@ -77,24 +82,40 @@
   cursor: pointer;
 }
 
+#site-footer {
+  background-color: #AC1603;
+  font-size: 80%;
+  border-top: #010101 1px solid;
+  color: #E8E2CC;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 30px;
+  width: 100%;
+  z-index: 1;
+}
+
+#site-footer ul {
+  width: 100%;
+}
+
+#site-footer li {
+  margin: 0 2%;
+  margin-top: 10px;
+}
+
+#site-footer .footer-color {
+  color: #010101
+}
+
+
 /* when width is less than 500 */
 
 @media all and (max-width: 499px) {
-  #projects-module {
-    width: 100%;
-  }
-
   #new-project-form-module input,
   #new-project-form-module textarea {
     width: 400px;
   }
-}
-
-/* when width is greater than 500 but less than 1000*/
-
-@media all and (min-width: 500px) {
-  #projects-module {
-    width: 75%;
 }
 
 /* when width is greater 1000*/

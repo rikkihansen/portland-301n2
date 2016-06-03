@@ -43,29 +43,49 @@ Article.loadAll = function(rawData) {
 
 // This function will retrieve the data from either a local or remote source,
 // and process it, then hand off control to the View.
+Article.fetchServer = function() {
+    $.getJSON('data/ipsumArticles.json', function(rawData) {
+        Article.loadAll(rawData);
+        localStorage.setItem("rawData", JSON.stringify(rawData));
+        articleView.initIndexPage();
+        console.log(new Date());
+    });
+};
+
 Article.fetchAll = function() {
-    if (localStorage.rawData) {
         // When rawData is already in localStorage,
         // we can load it by calling the .loadAll function,
         // and then render the index page (using the proper method on the articleView object).
         //DONE: What do we pass in here to the .loadAll function?
-        Article.loadAll(
-            JSON.parse(localStorage.getItem("rawData"))
-        );
-        articleView.initIndexPage(); //DONE: Change this fake method call to the correct one that will render the index page.
-    } else {
-        // DONE: When we don't already have the rawData, we need to:
-        // 1. Retrieve the JSON file from the server with AJAX (which jQuery method is best for this?),
-        $.getJSON('data/ipsumArticles.json', function(rawData) {
-            Article.loadAll(rawData);
-            localStorage.setItem("rawData", JSON.stringify(rawData));
+        var storedEtag = JSON.parse(localStorage.getItem('eTag'));
+        console.log(storedEtag);
+        $.ajax({
+            type: 'HEAD',
+            url: 'data/ipsumArticles.json',
+            success: function(data, message, xhr) {
+                console.log("xhr", xhr);
+                var serverEtag = xhr.getResponseHeader('eTag');
+                console.log(serverEtag, storedEtag);
+                if (storedEtag == serverEtag && localStorage.rawData) {
+                    // console.log(storedEtag, serverEtag);
+                    Article.loadAll(
+                        JSON.parse(localStorage.getItem("rawData"))
+                    );
+                }
+                localStorage.setItem("eTag", JSON.stringify(serverEtag));
+                articleView.initIndexPage();
+            }
         });
+        //DONE: Change this fake method call to the correct one that will render the index page.
+        Article.fetchServer();
 
-        // 2. Store the resulting JSON data with the .loadAll method,
-
-        // 3. Cache it in localStorage so we can skip the server call next time,
-
-        // 4. And then render the index page (perhaps with an articleView method?).
-        articleView.initIndexPage();
-    }
 };
+// DONE: When we don't already have the rawData, we need to:
+// 1. Retrieve the JSON file from the server with AJAX (which jQuery method is best for this?),
+
+
+// 2. Store the resulting JSON data with the .loadAll method,
+
+// 3. Cache it in localStorage so we can skip the server call next time,
+
+// 4. And then render the index page (perhaps with an articleView method?).

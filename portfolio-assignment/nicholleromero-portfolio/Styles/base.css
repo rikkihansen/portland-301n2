@@ -1,5 +1,5 @@
 html {
-  background-color: #688FA4;
+  background-color: whitesmoke;
 }
 
 ul {
@@ -8,11 +8,41 @@ ul {
 }
 
 img {
-  width: 30px;
-  height: 30px;
+  width: 500px;
   max-width: 100%;
 }
 
 a {
   color: #10384D;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.h1banner {
+    position: absolute;
+    color: white;
+    font-size: 50px;
+    font-family: Pacifico;
+}
+
+h2 {
+  font-family: Pacifico;
+}
+
+.tab {
+
+    padding: 25px;
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+}
+
+.video-container {
+position: relative;
+
+}
+
+.passion {
+  width: 200px!important;
 }

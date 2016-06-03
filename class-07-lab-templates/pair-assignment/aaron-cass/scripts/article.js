@@ -11,7 +11,7 @@ function Article (opts) {
 
 Article.prototype.toHtml = function() {
 
-var articleTemplate = $('#template').html()
+var articleTemplate = $('#template').html();
 var compiledTemplate = Handlebars.compile(articleTemplate);
 
   this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
@@ -26,8 +26,8 @@ rawData.sort(function(a,b) {
 
 rawData.forEach(function(ele) {
   articles.push(new Article(ele));
-})
+});
 
 articles.forEach(function(a){
-  $('#articles').append(a.toHtml())
+  $('#articles').append(a.toHtml());
 });

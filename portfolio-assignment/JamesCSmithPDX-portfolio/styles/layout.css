@@ -3,6 +3,8 @@ body {
   padding-top: 20px;
   padding-bottom: 20px;
   background: #222f5b;
+  background-image: url("../imgAssets/code.jpeg");
+  background-attachment: fixed;
   }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -16,7 +18,7 @@ body {
 /* Custom page header */
 .header {
   padding-bottom: 20px;
-  border-bottom: 1px solid #e5e5e5;
+  /*border-bottom: 1px solid #e5e5e5;*/
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -24,20 +26,21 @@ body {
   margin-bottom: 0;
   line-height: 40px;
 }
-.header img {
+.jumbotron img {
   max-width: 100%;
+  border-radius: 50%;
 }
 
 /* Custom page footer */
 .footer {
-  padding-top: 19px;
+  /*padding-top: 19px;*/
   border-top: 1px solid #e5e5e5;
 }
 
 /* Customize container */
-@media (min-width: 768px) {
+@media (min-width: 868px) {
   .container {
-    max-width: 730px;
+    max-width: 840px;
   }
 }
 .container-narrow > hr {
@@ -48,7 +51,7 @@ body {
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
-  font-family: 'Abril Fatface', cursive;
+  font-family: "ForoRounded W01 Light", cursive;
   color: #222f5b;
 }
 
@@ -62,8 +65,9 @@ body {
 .marketing p + h4 {
   margin-top: 28px;
 }
-.marketing img {
+.page-content img {
   max-width: 100%;
+  border-radius: 5px;
 }
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
@@ -82,4 +86,3 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
-}

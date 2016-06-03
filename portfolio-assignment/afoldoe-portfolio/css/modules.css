@@ -1,14 +1,16 @@
 
-.template {
-  display: none;
+article {
+  padding: 2rem;
 }
+
 .display-4 {
   margin-top: 25%;
 }
+#about {
+  padding: 2rem;
+  margin-top: 2rem;
+}
 /* Media Queries*/
 @media only screen and (min-width : 768px) and (max-width : 1400px) {
-  #projects {
-    flex-direction: row;
-    justify-content: space-around;
-  }
+
 }
