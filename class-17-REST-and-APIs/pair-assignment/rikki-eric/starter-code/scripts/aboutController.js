@@ -10,8 +10,8 @@
     // Pass in a view function as a callback, so our repos will render after the data is loaded.
 
 
-      repos.requestRepos(repoView.index);
-      console.log('inside aboutController.index');
+    repos.requestRepos(repoView.index);
+    console.log('inside aboutController.index');
 
 
   };

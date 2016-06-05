@@ -12,8 +12,8 @@
         'Authorization': 'token ' + githubToken
       },
       success: function(data, message, xhr) {
-          repos.all= data;
-          console.log('success');
+        repos.all= data;
+        console.log('success');
       },
       error: function(xhr, status, error) {
         console.log('error');
