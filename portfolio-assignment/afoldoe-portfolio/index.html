@@ -5,16 +5,16 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Arielle | Web Developer</title>
-    <link rel="stylesheet" type="text/css" src="css/normalize.css">
+    <link rel="stylesheet" type="text/css" src="vendor/styles/normalize.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/layout.css">
-    <link rel="stylesheet" type="text/css" href="css/state.css">
-    <link rel="stylesheet" type="text/css" href="css/theme.css">
-    <link rel="stylesheet" type="text/css" href="css/modules.css">
+    <link rel="stylesheet" type="text/css" href="styles/layout.css">
+    <link rel="stylesheet" type="text/css" href="styles/state.css">
+    <link rel="stylesheet" type="text/css" href="styles/theme.css">
+    <link rel="stylesheet" type="text/css" href="styles/modules.css">
     <!-- projects template -->
     <script id="project-template" type="text/x-handlebars-template">
       <article class="clearfix col-lg-4 text-xs-center" data-category="{{category}}" data-author="{{author}}">
-          <header>
+        <header>
           <address><a href="{{projectURL}}"><h1>{{title}}</h1></a></address>
           <div class="byline">
             published <time pubdate datetime="{{publishedOn}}">{{publishStatus}}</time>
@@ -95,10 +95,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script type="text/javascript" src="vendor/scripts/html5sql.js"></script>
+    <script type="text/javascript" src="scripts/webdb.js"></script>
     <script type="text/javascript" src="scripts/projectView.js"></script>
     <script type="text/javascript" src="scripts/script.js"></script>
     <script>
+     Project.createTable();
      Project.fetchAll(projectView.initIndexPage);
-   </script>
+    </script>
   </body>
 </html>

@@ -3,7 +3,7 @@
 "title":"instaAPI",
 "date":"02/05/2016",
 "img":"images/instaAPI.png",
-"text":"<p>This was a project I spent a couple of days on to familarize myself better with AJAX calls to a 3rd party API. I am a big Instagram fan, unfortunately their API isn't so intuitive.</p><p>It was a great learning process to read the docs and user forums. I had to figure out how some things about user access tokens, and JSONP. I'm not sure if JSONP is really required here, if an instructor looks at my code perhaps they could tell me. The animations aren't perfect, but it works!</p><p>I would really like to come back to this project someday in the near future, although the functionality that can be added with Instagram's API does seem a little limited.</p>",
+"text":"<p>This was a fun project I spent a couple of days on to familarize myself better with AJAX calls to a 3rd party API. I am a big Instagram fan, unfortunately their API isn't so intuitive.</p><p>It was a great learning process to read the docs and user forums. I had to figure out how some things about user access tokens, and JSONP. I'm not sure if JSONP is really required here, if an instructor looks at my code perhaps they could tell me. The animations aren't perfect, but it works!</p><p>I would really like to come back to this project someday in the near future, although the functionality that can be added with Instagram's API does seem a little limited.</p>",
 "skills":["JavaScript","AJAX"],
 "url": "http://pauwlsky.github.io/instaAPI/"
 },

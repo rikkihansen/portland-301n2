@@ -1,14 +1,11 @@
-
 (function(module) {
   Project.all = [];
 
+  //assigns the propeties of opts be the properties of each new Project
   function Project (opts) {
-    this.author = opts.author;
-    this.projectURL = opts.projectURL;
-    this.title = opts.title;
-    this.category = opts.category;
-    this.body = opts.body;
-    this.publishedOn = opts.publishedOn;
+    Object.keys(opts).forEach(function(e, index, keys) {
+      this[e] = opts[e];
+    }, this);
   }
 
   //compiles handlerbar template and returns the filled template so we can append to the page
@@ -21,66 +18,96 @@
     return finalTemplate(this);//returns the template with the project data filled in
   };
 
-  Project.loadAll = function(projectData) {
-    projectData.sort(function(a,b) {
-      return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
-    });
-    //adds each project object into an empty array
-    Project.all = projectData.map(function(ele) {
+  //goes through the all the 
+  Project.loadAll = function(rows) {
+    Project.all = rows.map(function(ele) {
       return new Project(ele);
     });
   };
 
-  //Retrieves project data with ajax call if nothing is in localStorage, if there is data in localStorage it is taken out of localStorage and loaded to the index page
+  //creates a DB table for the projects
+  Project.createTable = function(callback) {
+    webDB.execute(
+      'CREATE TABLE IF NOT EXISTS projects (' +
+        'id INTEGER PRIMARY KEY, ' +
+        'title VARCHAR(50) NOT NULL, ' +
+        'author VARCHAR(50), ' +
+        'projectURL VARCHAR(200), ' +
+        'publishedOn DATETIME NOT NULL, ' +
+        'category VARCHAR(20), ' +
+        'body TEXT NOT NULL);',
+        function(result) {
+          if(callback) callback();
+        }
+    );
+  };
+
+  //deletes all the projects in the db table
+  Project.truncateTable = function(callback) {
+    webDB.execute(
+    'DELETE FROM projects;',
+    callback
+    );
+  };
+
+  //inserts a project into the db table
+  Project.prototype.insertProject = function(callback) {
+    webDB.execute(
+      [
+        {
+          'sql': 'INSERT INTO projects (title, author, projectURL, publishedOn, category, body) VALUES(?, ?, ?, ?, ?, ?);',
+          'data': [this.title, this.author, this.projectURL, this.publishedOn, this.category, this.body]
+        }
+      ],
+      callback
+    );
+  };
+
+  //deletes a project from the db table
+  Project.prototype.deleteProject = function(callback) {
+    webDB.execute(
+      [
+        {
+          'sql': 'DELETE FROM projects WHERE id = ?',
+          'data': [this.id]
+        }
+      ],
+      callback
+    );
+  };
+
+  //updates an project in the db table; overwrites the corresponding info in the db
+  Project.prototype.updateProject = function(callback) {
+    webDB.execute(
+      [
+        {
+          'sql': 'UPDATE projects SET (title, author, projectURL, publishedOn, category, body) VALUES(?, ?, ?, ?, ?, ?);',
+          'data': [this.title, this.author, this.projectURL, this.publishedOn, this.category, this.body]
+        }
+      ],
+      callback
+    );
+  };
+
+  //Retrieves project data with ajax call if nothing is in the database table, if there is data in the table it is taken out and loaded to the index page
   Project.fetchAll = function(callback) {
-    if(localStorage.projectData) {
-      //ajax call if there is data in localStorage to check for updates
-      $.ajax({
-        type: 'HEAD',
-        url: 'data/projects.json',
-        success: function(data, message, xhr) {
-          var etag = xhr.getResponseHeader('Etag');
-          var storedEtag = localStorage.getItem('etag');
-          //compares headers in xhr to see if anything has been updated
-          if (etag === storedEtag) {
-          } else {
-            //if there has been an update in the projects.json, the projects are reloaded to the page using an ajax request
-            $('#projects').empty();
-            $.ajax({
-              url: 'data/projects.json',
-              dataType: 'json',
-              success: function(data, message, xhr) {
-                var etag = xhr.getResponseHeader('Etag');
-                var data = data;
-                Project.loadAll(data);//loads data from json file
-                callback();//loads new projects to the index.html
-                localStorage.setItem('projectData', JSON.stringify(data));
-                localStorage.setItem('etag' , etag);
-              }
-            });
-          }
-        }
-      });
-      var data = JSON.parse(localStorage.getItem('projectData'));
-      Project.loadAll(data);
-      callback();
-    } else {
-      //if there is no data then an ajax request is made to get data from projects.json and the projects are loaded to index.html
-      console.log('no data');
-      $.ajax({
-        url: 'data/projects.json',
-        dataType: 'json',
-        success: function(data, message, xhr) {
-          var etag = xhr.getResponseHeader('Etag');
-          console.log(etag);
-          var projectData = data;
-          Project.loadAll(data);
-          callback();
-          localStorage.setItem('projectData', JSON.stringify(data));
-          localStorage.setItem('etag' , etag);
-        }
-      });
-    }
+    webDB.execute('SELECT * FROM projects', function(rows) {
+      if(rows.length) {
+        Project.loadAll(rows);
+        callback();
+      } else {
+        $.getJSON('data/projects.json', function(projectData) {
+          projectData.forEach(function(item) {
+            var project = new Project(item);
+            project.insertProject();
+          });
+          webDB.execute('SELECT * FROM projects', function(rows) {
+            Project.loadAll(rows);
+            callback();
+          });
+        });
+      }
+    });
   };
   module.Project = Project;
 })(window);

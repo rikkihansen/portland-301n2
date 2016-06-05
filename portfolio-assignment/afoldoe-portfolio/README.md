@@ -1,5 +1,5 @@
 # code-blog
 
-05/30/16
+6-1-16
 
-In script.js file, will change database location from localStorage to mySql. I will need to create a table using webmd and store the information inside a table. Need to create a webdb.js to store functions relating for 
+Changed data storage from localStorage to webDB for consistent loading. Added a createTable(); function for creating the table, updateProject(); to overwrite old project rows in the database with new information to the corresponding rows, truncateTable(); clears out the entire table if needed, deleteProject(); deletes one Project instance in the table. 

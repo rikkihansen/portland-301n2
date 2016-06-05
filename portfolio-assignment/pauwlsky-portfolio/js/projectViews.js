@@ -5,7 +5,7 @@
   projectView.populateFilters=function(){
     $.ajax({
       dataType: 'json',
-      url:'js/portfolioitems.json',
+      url:'js/projectItems.json',
       success:function(data){
         data.forEach(function(item){
           var skills = item.skills;
@@ -26,11 +26,11 @@
     $('#project-li').on('click', function(e){
       e.preventDefault();
       $('#about').hide();
-      $('#project').fadeIn();
+      $('#project-container').fadeIn();
     });
     $('#about-li').on('click', function(e){
       e.preventDefault();
-      $('#project').hide();
+      $('#project-container').hide();
       $('#about').fadeIn();
     });
   };
@@ -51,6 +51,7 @@
   };
 
   projectView.showMore = function(){
+    console.log('inside showMore');
     $('.text').find('p:gt(0)').hide();
     $('article').on('click', '.show-more', function(e){
       e.preventDefault();
@@ -86,6 +87,7 @@
         return;
       };
       $existingImages.fadeOut('slow');
+      //TODO refactor to exclude images.json and grab information from another source, make AJAX call to flickr free api or another source ? ?
       $.ajax({
         type: 'get',
         url: 'js/images.json',
@@ -114,6 +116,7 @@
   };
 
   projectView.controllerInit = function(){
+    console.log('inside controllerInit');
     projectView.populateFilters();
     projectView.showSection();
     projectView.filterSelected();
