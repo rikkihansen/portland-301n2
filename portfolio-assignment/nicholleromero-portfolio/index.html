@@ -4,127 +4,127 @@
     <meta charset="UTF-8">
     <title>Nicholle Romero</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/icons.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
+    <link rel="stylesheet" href="styles/state.css">
+    <link rel="stylesheet" href="styles/theme.css">
     <link rel="stylesheet" href="Styles/skeleton.css">
     <link rel="stylesheet" href="Styles/normalize.css">
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
-
     <script id="project-template" type="text/x-handlebars-template">
-      <article class="clearfix">
+      <project class="clearfix" data-title="{{name}}">
         <header>
-          <h1>{{title}}</h1>
-            <div class="new">
-              <address id="name">
-                <a href="{{link}}">{{name}}</a>
-              </address>
-              <p id="desc">{{description}}</p>
-            </div>
+          <iframe
+            width="750"
+            height="350"
+            src="{{projectUrl}}">
+          </iframe>
+            <address><a href="{{projectUrl}}">{{name}}</a></address>
+            <div id="date">{{date}}</div>
           </header>
-        </article>
+          <section class="project-body">{{{description}}}</section>
+          <a href="#" class="read-on">Read on &rarr;</a>
+        </project>
       </script>
+    </head>
 
-      <!-- NEW -->
-
-        <script id="project-template" type="text/x-handlebars-template">
+        <!-- <script id="project-template" type="text/x-handlebars-template">
             <li>Word count: {{numWords}}</li>
         </script>
+ -->
 
-        <script id="interests-template" type="text/x-handlebars-template">
-            <header>
-              <h1>{{title}}</h1>
-                <p>{{desctiption}}</p>
-                    <div>
-                      <img src={{image}}>
-                    </div>
-              </header>
-          </script>
-
-
-      <!-- NEW END -->
-
-
-  </head>
-  <body>
-
-
-
-
-
+<body>
 <header class="site-header clearfix">
   <nav class="navigation">
     <div class="icon-menu"></div>
-      <!-- <div class="container navigation"> -->
-        <!-- <div class="six columns right navtext"> -->
-          <ul>
-            <li class="tab" data-content="home"><a href="#">Home</a></li>
-            <li class="tab" data-content="about"><a href="#">About</a></li>
-            <li class="tab" data-content="projects"><a href="#">Projects</a></li>
-            <li class="tab" data-content="passions"><a href="#">Passions &amp; Interests</a></li>
-            <li class="tab" data-content="contact"><a href="#">Contact</a></li>
-          </ul>
-        <!-- </div> -->
-      <!-- </div> -->
+      <ul>
+        <li class="tab" data-content="home"><a href="#">Home</a></li>
+        <li class="tab" data-content="about"><a href="#">About</a></li>
+        <li class="tab" data-content="projects"><a href="#">Projects</a></li>
+        <li class="tab" data-content="skills"><a href="#">Skills</a></li>
+        <li class="tab" data-content="contact"><a href="#">Contact</a></li>
+      </ul>
   </nav>
 </header>
 
+<main>
+  <section id="home" class="tab-content">
+    <div class="homepage-hero-module">
+        <div class="video-container">
+            <video autoplay loop class="fillWidth">
+                <source src="Window-Snow/MP4/Window-Snow.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+                <source src="Window-Snow/WEBM/Window-Snow.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+            </video>
+            <h1 class="h1banner">Nicholle M. Romero</h1>
+        </div>
+    </div>
+  </section>
 
-  <main>
-    <section id="home" class="tab-content">
-      <div class="homepage-hero-module">
-          <div class="video-container">
-              <div class="filter"></div>
-              <video autoplay loop class="fillWidth">
-                  <source src="Window-Snow/MP4/Window-Snow.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
-                  <source src="Window-Snow/WEBM/Window-Snow.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
-              </video>
-              <h1 class="h1banner">Nicholle M. Romero</h1>
-              <!-- <div class="poster hidden">
-                  <img src="Window-Snow/SnapShots/Window-Snow.jpg" alt=""> -->
-              </div>
-          </div>
-      </div>
+
+  <section id="about" class="tab-content">
+    <h2>Nicholle M. Romero</h2>
+      <div id="nicPic"><img src=Images/Nicholle_Pic.jpg></div>
+        <div id="aboutPara">
+          <p>Fueled by passion, drive, and ambition to create innovative work in the tech industry.</p>
+          <p>I received an undergraduate degree in Finance with minors in Mathematics and Physics from
+          the University of Denver. As a student in the honors college, I wrote my thesis on an analysis
+          of the public sector and private sector's role in eradicating global poverty. After completing
+          my undergraduate degree, I immediately traveled the world on my own, following up on my thesis topic,
+          volunteering and working to solve global poverty. I enrolled in graduate school the following year and received
+          my International MBA from the University of Denver in 2015. I continued my pursuit of international
+          sustainable development throughout this program while completing several consulting projects including
+          work for <a href="https://www.db.com/cr/en/responsible-business/financing-social-change.htm">Deutsche Bank's
+          Impact Investment Fund</a> and <a href="http://www.nokero.com/">Nokero</a>. These projects involved on-site research in South America
+          and Africa.</p>
+          <p>Since finishing my graduate degree, I have worked as an Investment Analyst for <a href="https://www.rvkinc.com/">RVK, Inc.</a>,
+          developing my analytical and quantitative skills.</p>
+        </div>
+  </section>
+
+  <section id="projects" class="tab-content">
+    <h2>My Work</h2>
+    <div>
+      <ul id="filters">
+        <li>
+          <select id="title-filter">
+            <option value="">-- Filter by Project Title --</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+<!-- NEW -->
+      <!-- <ul class="project-stats">
+      </ul> -->
+<!-- END NEW -->
     </section>
 
-    <section id="about" class="tab-content">
-      <h1>
-        <div><img src=Images/Nicholle_Pic.jpg></div>
-      </h1>
+    <section id="skills" class="tab-content">
+      <h2>My Skills</h2>
+      <p>Coming soon...</p>
+    </section>
+
+    <section id="contact" class="tab-content">
+      <h2>Let's Connect!</h2>
+      <p>Please reach out to me with any inquiries or comments via <a href="mailto:nicholleromero@gmail.com">email</a>.</p>
       <ul class="icons">
         <li><a href="https://www.linkedin.com/in/nicholle-romero-mba-24355751"><img src=Images/LinkedIn_Icon.png></a></li>
         <li><a href="https://github.com/nicholleromero"><img src=Images/GitHub_Icon.png></a></li>
       </ul>
     </section>
-
-    <section id="projects" class="tab-content">
-
-<!-- NEW -->
-      <ul class="project-stats">
-      </ul>
-<!-- END NEW -->
-
-    </section>
-
-    <section id="passions" class="tab-content">
-    </section>
-
-    <section id="contact" class="tab-content">
-    </section>
-
   </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <script src="data/myProjects.json"></script>
-    <!-- <script src="projects.js"></script> -->
-    <script src="project.js"></script>
-    <script src="projectView.js"></script>
-    <script src="video.js"></script>
+    <script src="Scripts/project.js"></script>
+    <script src="Scripts/projectView.js"></script>
+    <!-- <script src="Scripts/video.js"></script> -->
     <script>
-      Project.fetchAll();
+      Project.fetchAll(function() {
+        projectView.init();
+      });
     </script>
   </body>
 </html>

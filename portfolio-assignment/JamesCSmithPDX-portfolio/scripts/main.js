@@ -65,7 +65,7 @@
   };
 
 // load json from local
-  Project.fetchLocal = function(callback){
+  Project.fetchLocal = function(callback) {
     Project.loadAll(JSON.parse(localStorage.getItem('rawData')));
     callback();
   };
@@ -79,6 +79,7 @@
       callback();
     });
   };
+
 
   module.Project = Project;
 })(window);

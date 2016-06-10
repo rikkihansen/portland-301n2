@@ -12,7 +12,7 @@
 "date":"11/14/2015",
 "img":"images/portfolio1.png",
 "text":"<p>This is my old portfolio, one which I still use and which displays my code since I've started learning web programming (back in October 2015).</p><p>I have been adding to this. It has been a great toying around with this for learning bootstrap, but at this point I'm about ready to abondon it and go onto something else. The site is mobile responsive and makes use of the image source http attribute in breakpoints</p>",
-"skills":["CSS3", "HTML5", "BootStrap"],
+"skills":["CSS3", "HTML5", "Boot Strap"],
 "url": "http://pauwlsky.github.io/Portfolio/"
 },
 {
@@ -20,7 +20,7 @@
   "date":"01/03/2016",
   "img":"images/storyLocations.png",
   "text":"<p>This is a compilation of Team Treehouse project that I linked together into one page. It doesn't serve any real purpose, it does have working functionality that many webpages have though.</p><p>It makes use of jQuery plugins, BootStrap, and is completely mobile responsive. This was one of the first projects I used the Googlemaps API on as well, which provided me the grounds to start with skaterPortland. click around and see how you like it :)</p><p> The content in the app is centered around a story telling theme, which was inspired by a simple app idea I had. I wanted to create an app that would allow a user to write a story of some kind and then either keep the story or 'cast-away' the story. Once a user cast away their story another user could find it based on their geographical location. Different geographical locations around Portland would populate the stories in one of the three pages served from the index file.</p> <p>For example, if the user was in the Gorge area, they would see stories 'cast-away' by users who had cast them away in that area. A user in Forest Park would see stories cast away in that area... and so on.",
-  "skills":[ "BootStrap", "JavaScript", "jQuery", "AJAX"],
+  "skills":[ "Boot Strap", "JavaScript", "jQuery", "AJAX"],
   "url": "http://pauwlsky.github.io/storyLocations/"
 },
 {
@@ -28,7 +28,15 @@
 "date":"04/03/2016",
 "img":"images/skaterportland.png",
 "text":"<p>My most recent project for the Code Fellows 301 entrance test, by far the best programming experience I've had so far.</p><p>I sat in on a 201 course where Al Shae described the students gave the students their final project. I decided to take on basically the same assignment the students were given and code my own app within a week.The project took me more time than that of course. Orignially I coded only in JavaScript, now I'm in the process of modularizing the code with requirejs and rewriting all of it using jQuery as well.</p><p>I have the goal to keep working on this project and add a database to store skate locations. Lots of user interaction to be modified as well. One of my favorite parts of this project was implementing the mobile responsive CSS and JS. Try resizing the window and using the iPhone window in the developer toos :) Feedback is appreciated!</p>",
+<<<<<<< HEAD:portfolio-assignment/pauwlsky-portfolio/js/projectItems.json
+<<<<<<< HEAD
+"skills":[ "Local Storage", "jQuery", "APIs"],
+=======
 "skills":[ "JavaScript", "jQuery", "Google-Maps"],
+>>>>>>> 1cf04d6c85350afdb0e584f49ddddcb3712a2b9d
+=======
+"skills":[ "Local Storage", "jQuery", "APIs"],
+>>>>>>> a9e35548a260b0c325768ac2dd01471e82cc43a8:portfolio-assignment/pauwlsky-portfolio/js/portfolioItems.json
 "url": "http://pauwlsky.github.io/code_fellows_challenge/"
 }
 ]

@@ -1,7 +1,15 @@
 [
   {
     "name": "PDX Neighbors",
-    "link": "http://pdx-neighbors.github.io/pdx-neighbors",
-    "description": "Your Portland neighborhood resource."
+    "projectUrl": "http://pdx-neighbors.github.io/pdx-neighbors/",
+    "description": "Your Portland neighborhood resource.",
+    "date": "May 2016"
+  },
+
+  {
+    "name": "Placeholder",
+    "projectUrl": "https://www.google.com/",
+    "description": "This is serving as a placeholder (unitl a future date when I create another project) to show the filter function works.",
+    "date": "Some future date."
   }
 ]

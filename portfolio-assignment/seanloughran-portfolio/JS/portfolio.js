@@ -22,7 +22,7 @@
   };
 
 
-  //Goes through projectData info and pushes to the Project.all array.
+  //Goes through projectData info and maps each created Project to the Project.all array.
   Project.localLoad = function(localSData) {
     // localSData.forEach(function(projectRawObject) {
     //   Project.all.push(new Project(projectRawObject));
@@ -33,6 +33,8 @@
     });
   };
 
+  //Checks local storage for stored json data. If nothing found makes an
+  // ajax call to pull JSON data from projectData.json.
   Project.infoFetch = function() {
     if (localStorage.localSData) {
 
@@ -46,7 +48,7 @@
         url: 'Data/projectData.json',
         success: function(data) {
           Project.localLoad(data);
-          localStorage.setItem('localSData', JSON.stringify(data));
+          localStorage.setItem('localSData', JSON.stringify(data)); // Pushes pull data to local storage.
           projectView.initPrimaryPage();
           console.log(data);
         }

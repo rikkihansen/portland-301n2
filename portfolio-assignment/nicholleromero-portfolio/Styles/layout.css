@@ -4,9 +4,27 @@
   clear: both;
 }
 
+/*Source: http://www.coverr.co*/
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+}
+
+
 /*VIDEO*/
 
-.homepage-hero-module {
+/*.homepage-hero-module {
     border-right: none;
     border-left: none;
     position: relative;
@@ -15,7 +33,7 @@
 .touch .video-container video {
     display: none;
 }
-.no-video .video-container .poster,
+.no-video .video-container
 .touch .video-container .poster {
     display: block !important;
 }
@@ -46,7 +64,7 @@
 }
 .video-container video.fillWidth {
     width: 100%;
-}
+}*/
 
 
 /*VIDEO END*/

@@ -7,7 +7,7 @@
     "postDate": "2016-04-17",
     "imgSrc": "imgAssets/busmall.png",
     "imgAlt": "BusMall",
-    "projDescription": "<p>The problem domain was to build a market research tool that show user three images and they would vote on their favorite by clicking on the image.</p><p>I used splice on the image array to keep from showing the user the same images consecutively. I also kept track of votes and displayed them in a chart via Canvasjs library.< /p><p>The scope changed to track all votes so a marketer could get results from multiple users. To accomplish this I implemented local storage and again used Canvasjs to show all the results in local storage in a bar chart.</p>"
+    "projDescription": "<p>The problem domain was to build a market research tool that show user three images and they would vote on their favorite by clicking on the image.</p><p>I used splice on the image array to keep from showing the user the same images consecutively. I also kept track of votes and displayed them in a chart via Canvasjs library.</p><p>The scope changed to track all votes so a marketer could get results from multiple users. To accomplish this I implemented local storage and again used Canvasjs to show all the results in local storage in a bar chart.</p>"
   },
   {
     "title": "Salmon Cookies",
@@ -17,7 +17,7 @@
     "postDate": "2016-04-04",
     "imgSrc": "imgAssets/cookie-store.png",
     "imgAlt": "Salmon Cookies",
-    "projDescription": "<p>The problem domain was to build a web app that helps the owner of cookie store estimate the amount of ingredients he needs. I was given min and max customers per hour and average cookies bought per customer for each store.</p><p>I built a simulator using random customer numbers between the min and max customers per hour for each store. I multipled this by the average sale per customer.</p><p>The sales simulations are displayed in a table dynamically generated on the web page via raw Javascript.< /p><p>I included a way for store owner Sam to add more stores as his business grows. There is a form with an event listener that as for store name, hourly min and max customer visits, and average sales per customer. When Sam submits the information, a new row is added to the table with the new store simulaitons.</p>"
+    "projDescription": "<p>The problem domain was to build a web app that helps the owner of cookie store estimate the amount of ingredients he needs.</p><p>I was given min and max customers per hour and average cookies bought per customer for each store.</p><p>I built a simulator using random customer numbers between the min and max customers per hour for each store. I multipled this by the average sale per customer.</p><p>The sales simulations are displayed in a table dynamically generated on the web page via raw Javascript.< /p><p>I included a way for store owner Sam to add more stores as his business grows. There is a form with an event listener that as for store name, hourly min and max customer visits, and average sales per customer. When Sam submits the information, a new row is added to the table with the new store simulaitons.</p>"
   },
   {
     "title": "Adventure Finders",
@@ -37,6 +37,16 @@
     "postDate": "2016-05-10",
     "imgSrc": "imgAssets/trajectoryds.png",
     "imgAlt": "TrajectoryDS.com",
-    "projDescription": "<p>I needed to create a quick one page landing page before attending the WebVisions conference.</p><p>Given the quick turn-around, I customized a WordPress template.< /p><p>I used it to create a one page site for my consulting business. The site provides details the services I provide, including my new development skills.</p>"
+    "projDescription": "<p>I needed to create a quick one page landing page before attending the WebVisions conference.</p><p>Given the quick turn-around, I customized a WordPress template.</p><p>I used it to create a one page site for my consulting business. The site provides details the services I provide, including my new development skills.</p>"
+  },
+  {
+    "title": "Color Plucker",
+    "projectType": "JavaScript",
+    "contributor": "James Smith",
+    "contributorUrl": "http://jamescsmithpdx.github.io/color-plucker/",
+    "postDate": "2016-05-28",
+    "imgSrc": "imgAssets/color-plucker.png",
+    "imgAlt": "Color Plucker App",
+    "projDescription": "<p>I wanted to explore HTML5 canvas so I built a color picker app that I call Color Plucker.</p><p>For now the app has opne image imbedded and I used JavaScript and JQuery to build the logic. The app puts the image in a canvas container. I put an event listener on the canvas container and on click it grabs the canvas object.</p><p>The object includes RGB data based on the location of the cursor on click. The RGB color is placed on screen. I used a Javascripter FAQ and code to create the RGB to Hex conversion. This data is also placed on page. I also included a bar that changes color based on the color plucked.</p><p>I used the CuteStrap framework for its grid amd responsiveness. I used the color-plucker to get color to inclucde onthe page form the photo - a piture of native art I took on a trip to Alaska.</p>"
   }
 ]

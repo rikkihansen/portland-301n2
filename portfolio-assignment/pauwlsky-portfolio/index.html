@@ -10,7 +10,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
+<<<<<<< HEAD
   <!-- Seperated Out Projects -->
+=======
+    <script id="article" type="text/x-handlebars-template">
+      <article data-category="{{title}}" class="project">
+        <div class="title-date text-left">
+          <h2 class="title">{{title}}</h2>
+          <p class="date">{{date}}</p>
+          <p class="days-ago">{{daysAgo}}</p>
+        </div>
+        <div class="body-text">
+          <a class="modal-show" href=""><img class="image image-left" src="{{img}}"/></a>
+          <div class="text text-right">{{{text}}}</div>
+          <a class="show-more" href="#">Read On --></a>
+        </div>
+        <div class="skills-github text-right">
+          <a class="fontawesome-github-alt font-icon" href="{{url}}"><p class='url-text'>
+            {{url}}</p></a>
+          <h3>Skills Used</h3>
+          <p class="skills">{{#join}}{{skills}}{{/join}}</p>
+        </div>
+        <hr/>
+      </article>
+    </script>
+
+>>>>>>> a9e35548a260b0c325768ac2dd01471e82cc43a8
   <div class="container">
     <div class="header-container">
       <img class="logo" src="images/logo.jpg" />

@@ -9,38 +9,6 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/modules.css">
 
-    <!-- Handlebars Project Template -->
-    <script id='project-template' type='text/template'>
-      <div class='project four columns'>
-        <header>
-          <h2 class='title'><a class='project-link' href={{url}} target="_blank">{{title}}</a></h2><!--project.title, project.url-->
-          <p class='description'>{{description}}</p><!--project.description-->
-          <div class='byline'>
-            <span class='author'>{{publishedBy}}</span><!--project.publishedBy-->
-            published this <time pubdate datetime={{publishedOn}}>{{daysAgo}}</time><!--project.publishedOn-->
-          </div>
-          <br>
-          <section class='details-container'>
-            <p class='details'>{{details}}</p><!--project.details-->
-            <p><a class='code-link' href={{codeUrl}} target="_blank">See Code</a></p><!--project.codeUrl-->
-            <img src={{screenshot}} alt='{{screenshot}}'><!--project.screenshot-->
-            <br>
-            <br>
-          </section>
-        </header>
-      </div>
-    </script>
-
-    <!-- Handlebars Footer Template -->
-    <script id='footer-template' type="text/x-handlebars-template">
-      <ul id='footer-items'>
-        <li>&copy; {{copyrightYear}}<span class=footer-color> Dan Oswalt</span></li>
-        <li>Projects Listed: <span class=footer-color>{{projectCount}}</span></li>
-        <li>Published This Month: <span class=footer-color>{{last30DaysCount}}</span></li>
-        <li>Occurences of letter <span class=footer-color>'{{randomLetter}}'</span> in project descriptions: <span class=footer-color>{{randomLetterCount}}</span></li>
-      </ul>
-    </script>
-
   </head>
 
   <body>
@@ -62,7 +30,6 @@
 
         <!-- Project-views load here -->
         <section id='projects-module' class='tab-view'>
-
         </section>
 
         <!-- about tab content -->
@@ -85,4 +52,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
   <script src="scripts/project.js"></script>
+  <script src="scripts/ProjectModule.js"></script>
+  <script src="scripts/ViewHandler.js"></script>
+  <script src="scripts/repo.js"></script>
+  <script src="scripts/githubToken.js"></script>
+  <script>
+    ViewHandler.init();
+    Handlebars.registerHelper('daysAgo', function() {
+      return parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago';
+    });
+  </script>
 </html>

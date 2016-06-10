@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
 
-  </head>
+    </head>
   <body>
     <header class="site-header clearfix">
       <section class="heading-group-h1">
@@ -45,11 +45,29 @@
     <footer>
       &copy; 2015 Code Fellows | Static Blog | Happy Ipsum!
     </footer>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.amd.js"></script>
     <script src="/vendor/scripts/jquery-2.1.4.js"></script>
     <script src="/vendor/scripts/handlebars.js"></script>
+    <!-- <script src="/hbs/repo-template.hbs"></script> -->
     <script src="/vendor/scripts/page.js"></script>
+    <script src="/scripts/templates.js"></script>
 
+    <script src="/scripts/githubToken.js"></script>
+    <script src="/scripts/repo.js"></script>
+    <script src="/scripts/repoView.js"></script>
+    <script src="/scripts/aboutController.js"></script>
+
+
+    <script src="/scripts/github_token.js"></script>
+    <script src="/scripts/repo.js"></script>
+    <script src="/scripts/template.js"></script>
+    <script src="/scripts/repoView.js"></script>
+    <script src="/scripts/aboutController.js"></script>
     <script src="/scripts/routes.js"></script>
+
+
+    <script>
+      repos.requestRepos(repoView.index);
+    </script>
   </body>
 </html>

@@ -51,10 +51,12 @@
   </script>
 
   <script id="anagram-template" type="text/x-handlebars-template">
-            <p><strong>Scrambled Name:</strong> {{hbAnagram}}</p>
-            <p>
+          <div id="hbAnagram">
+            <p class="hbAnagram"><strong>Scrambled Name:</strong> {{hbAnagram}}</p>
+            <p class="hbAnagram">
               Brought to you by string split into array, Fisher-Yates shuffled and reduced.
             </p>
+          </div>
   </script>
 </head>
 
@@ -80,7 +82,7 @@
       </div>
     <footer id="about" class="page-content">
           <p id="anagram">
-            James is a junior developer who attended Code Fellows&trade; learning HTML, CSS, JavaScript, JQuery, Handlebars, Bootstrap and responsive design. In his previous life he was a market and competitive intelligence analyst, helping teams understand market landscapes, customers and competitors. He loves hiking the Gorge, craft beers and RipCity.
+            James is a developer who attended Code Fellows&trade; learning HTML, CSS, JavaScript, JQuery, Handlebars, Bootstrap and responsive design. In his previous life he was a market and competitive intelligence analyst, helping teams understand market landscapes, customers and competitors. He loves hiking the Gorge, craft beers and RipCity.
           </p>
 
         <div class="links">
@@ -95,8 +97,8 @@
     <script src="scripts/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
     <script src="scripts/main.js"></script>
+    <script src="scripts/anagram.js"></script>
     <script src="scripts/projectView.js"></script>
-    <script src="scripts/jquery.matchHeight-min.js" type="text/javascript"></script>
     <script>Project.fetchAll(projectView.initIndexPage);</script>
 </body>
 </html>

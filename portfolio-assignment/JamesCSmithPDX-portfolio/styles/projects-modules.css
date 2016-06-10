@@ -11,7 +11,9 @@
 }
 
 #projects h2 {
+  color: #222f5b;
   margin-bottom: 0;
+  font-weight: bold;
 }
 .contributors {
   color: #5d5d5d;
@@ -26,6 +28,7 @@
   display: block;
   margin: 1vw 0;
   max-width: 100%;
+  overflow: hidden;
 }
 time {
   font-size: .75em;

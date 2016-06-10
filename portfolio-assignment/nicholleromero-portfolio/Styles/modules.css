@@ -2,33 +2,7 @@
   visibility: hidden;
 }
 
-
-
 .icon-menu {
   float: right;
   font-size: 50px;
-}
-/* for if I put in a hamburger*/
-
-
-
-/*-------Responsive design------ */
-
-
-@media only screen and (min-width: 500px) {
-/*  .icon-menu{
-    visibility: hidden;
-  }
-----> include if put in hamburger*/
-
-
-  .navigation ul, li {
-    display: block;
-  }
-
-
-  .navigation li {
-    display: inline;
-  }
-
 }

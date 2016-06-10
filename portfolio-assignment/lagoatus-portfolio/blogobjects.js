@@ -14,7 +14,7 @@ var myProjects = [
     body:        '<p>Class project created to help researchers determine which products are preferred. </p> <img src="nw.png" class=""> <hr class="hrAppend">'
   },
   {
-    title:       'PDX ',
+    title:       'PDX example',
     role:        'Co-developer',
     projectUrl:   'http://pdx-neighbors.github.io/pdx-neighbors/',
     completionDate: '2016-04-30',

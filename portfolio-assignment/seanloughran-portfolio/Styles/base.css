@@ -69,3 +69,39 @@ article h2 {
   color: white;
   text-decoration: none;
 }
+
+#contactBar {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  color: black;
+  width: 95vw;
+  height: 7vh;
+}
+
+#contactBar div {
+  display: inline-block;
+  margin: auto;
+  width: 30%;
+}
+
+.contactIcon {
+  width: 30%;
+}
+
+#contactAppear {
+  margin-right: 2%;
+  text-align: right;
+  display: none;
+  position: absolute;
+}
+
+#contactAppear p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+footer {
+  width: 75%;
+  margin: auto;
+}

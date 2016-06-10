@@ -4,7 +4,7 @@
 
   //Functionality for home and about me tabs.
   projectView.tabNavigation = function() {
-    $('nav').on('click','li', function(){
+    $('nav').on('click','.tab', function(){
       $('.tab-content').hide();
       $('body').find('[id="'+$(this).attr('data-content')+'"]').show();
     });
@@ -30,6 +30,10 @@
         $('.read-more').html('Read More');
       }
     });
+
+  };
+
+  projectView.contactAppear = function() {
 
   };
 

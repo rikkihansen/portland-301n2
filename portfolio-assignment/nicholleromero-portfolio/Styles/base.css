@@ -4,7 +4,7 @@ html {
 
 ul {
   display: inline-block;
-  list-style-type: none;
+  list-style-type: none !important;
 }
 
 img {
@@ -21,7 +21,7 @@ a:link {
 }
 
 .h1banner {
-    position: absolute;
+    /*position: absolute;*/
     color: white;
     font-size: 50px;
     font-family: Pacifico;
@@ -43,6 +43,16 @@ position: relative;
 
 }
 
-.passion {
-  width: 200px!important;
+#nicPic {
+  float: left;
+  margin: 0px 15px 15px 0px;
+}
+
+#aboutPara {
+  margin: 0px 15px 15px 0px;
+}
+
+.icons {
+  width: 30px;
+  display: block;
 }

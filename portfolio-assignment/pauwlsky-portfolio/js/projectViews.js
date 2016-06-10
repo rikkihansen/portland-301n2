@@ -5,7 +5,11 @@
   projectView.populateFilters=function(){
     $.ajax({
       dataType: 'json',
+<<<<<<< HEAD
       url:'js/projectItems.json',
+=======
+      url:'js/portfolioitems.json',
+>>>>>>> a9e35548a260b0c325768ac2dd01471e82cc43a8
       success:function(data){
         data.forEach(function(item){
           var skills = item.skills;
@@ -20,17 +24,28 @@
     });
   };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a9e35548a260b0c325768ac2dd01471e82cc43a8
   projectView.showSection = function(){
     $('#about').hide();
     $('#project-li').on('click', function(e){
       e.preventDefault();
       $('#about').hide();
+<<<<<<< HEAD
       $('#project-container').fadeIn();
     });
     $('#about-li').on('click', function(e){
       e.preventDefault();
       $('#project-container').hide();
+=======
+      $('#project').fadeIn();
+    });
+    $('#about-li').on('click', function(e){
+      e.preventDefault();
+      $('#project').hide();
+>>>>>>> a9e35548a260b0c325768ac2dd01471e82cc43a8
       $('#about').fadeIn();
     });
   };
@@ -49,6 +64,7 @@
       }
     });
   };
+<<<<<<< HEAD
 
   projectView.showMore = function(){
     console.log('inside showMore');
@@ -60,6 +76,18 @@
     });
   };
 
+=======
+
+  projectView.showMore = function(){
+    $('.text').find('p:gt(0)').hide();
+    $('article').on('click', '.show-more', function(e){
+      e.preventDefault();
+      $(this).prev().children('p').fadeIn();
+      $(this).hide();
+    });
+  };
+
+>>>>>>> a9e35548a260b0c325768ac2dd01471e82cc43a8
   projectView.modalShow = function(){
     $('.modal-show').on('click', function(e){
       e.preventDefault();
@@ -70,14 +98,20 @@
     });
     //logic for hiding modal on page click
     //TODO fix logic so modal hides when clicking off of modal
+<<<<<<< HEAD
     $('.modal-content').on('click', function(e) {
       $('.modal').css('display', 'none');
+=======
+    $('.modal').on('click', function(e) {
+      $(this).css('display', 'none');
+>>>>>>> a9e35548a260b0c325768ac2dd01471e82cc43a8
       $('.modal-content').empty();
     });
   };
 
   projectView.showSkillImgs = function(){
     $('.skills').on('click', 'a', function(e){
+<<<<<<< HEAD
       var that = this;
       var $skillImagesContainer = $(this).parents('article').find('.skills-images');
       var $existingImages = $(this).parents('article').find('.skills-images img');
@@ -117,6 +151,29 @@
 
   projectView.controllerInit = function(){
     console.log('inside controllerInit');
+=======
+      e.preventDefault();
+      var term = $(this).html();
+      $.ajax({
+        type: "get",
+        url: "js/images.json",
+        success: function(data){
+          data.images.map(function(item){
+            console.log(term.toLowerCase());
+            console.log(item.toLowerCase());
+            console.log(item.toLowerCase().indexOf(term.toLowerCase()));
+            var image = $('<img src ="' + item + '" >');
+
+            // console.log(image);
+            // $('body').append(image);
+          })
+        }
+      });
+    })
+  }
+
+  projectView.controllerInit = function(){
+>>>>>>> a9e35548a260b0c325768ac2dd01471e82cc43a8
     projectView.populateFilters();
     projectView.showSection();
     projectView.filterSelected();

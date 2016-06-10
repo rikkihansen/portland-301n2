@@ -1,0 +1,20 @@
+<section id='project-template' type="text/x-handlebars-template">
+  <div class='project'>
+    <header>
+      <h2 class='title'><a class='project-link' href={{url}} target="_blank">{{title}}</a></h2><!--project.title, project.url-->
+      <p class='description'>{{description}}</p><!--project.description-->
+      <div class='byline'>
+        <span class='author'>{{publishedBy}}</span><!--project.publishedBy-->
+        published this <time pubdate datetime={{publishedOn}}>{{daysAgo}}</time><!--project.publishedOn-->
+      </div>
+      <br>
+      <section class='details-container'>
+        <p class='details'>{{details}}</p><!--project.details-->
+        <p><a class='code-link' href={{codeUrl}} target="_blank">See Code</a></p><!--project.codeUrl-->
+        <!-- <img src={{screenshot}} alt='{{screenshot}}'>project.screenshot-->
+        <br>
+        <br>
+      </section>
+    </header>
+  </div>
+</section>

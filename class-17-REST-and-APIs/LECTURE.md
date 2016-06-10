@@ -12,10 +12,34 @@
 
 ### Assignments for this Week
 
-* Mon Jun  6th Lab 10 Recap: Portfolio Assignment Due
 * Mon Jun  6th Lab 12 REST: Pair Assignment Due
+  - As a developer, I want to treat my GitHub repositories as a resource (with full MVC components), so that I can manage them within my blog.
+  - You already have an `aboutController.js`,
+  - so we need to add a `repo.js` model file,
+  - and a `repoView.js` presentation layer.
+  - GitHub API credentials should be stored in a local file (`githubToken.js`), but not committed to GitHub. Use `.gitignore` to prevent the file from being tracked (get help in lab if you don't know how to use `.gitignore`).
+  - As the site owner, I want to highlight certain repos on my `/about` page so that everyone can see the great projects I am working on.
+  - Retrieve and manipulate repo info in your model file.
+  - You can choose exactly what API end point to use.
+  - Craft an API query to return repos that you want to highlight.
+  - Create a template in your view file to display these repos. You can build your template with either plan jQuery (string concatenation), or with Handlebars.
+
 * Fri Jun 10th Lab 11 Routes: Pair Assignment Due
+
+	* As a developer, I want an articleController, so that I can group together actions related to the article resource.
+		- Move the functionality from the last script tag in index.html into the articlesController.js file.
+		- When the `/` route is requested, only the #articles section should be visible to the user.
+	*  As a developer, I want a routing file, so that I have a central place to define what URLs my app can handle.
+		- Look for the TODO items in `routes.js`. Use the `page.js` features to tell your app how to handle the `/` route and the `/about` route.
+		- As an reader, I want to view the article index, so that I can read all the articles.
+		- Ensure that visiting the `/` route triggers the behavior of loading all the articles and initializing the index page view.
+	* As a reader, I want to view '/about', so that I can learn more about the brilliant dev who created this site.
+		- Fill in the contents of `aboutController.js`, so the `#about` section is revealed when the about index action is triggered.
+		- Ensure the function is linked to a route, so visitors to `/about` see your info, and not the blog posts.
+
 * Fri Jun 10th Lab 12 REST: Portfolio Assignment Due
+	- In our blog, we used RESTful routes to interact with the Github API.  It's time to take this a step further and integrate this functionality into your portfolio project.
+	- To get started, you will need to create a controller that includes a call to the Github API. This call should grab data about your individual account, and render portions of the returned content to the page, **once the data has been loaded**.  This is fairly open ended, so use whatever data you deem fit and be sure to separate your concerns.
 	
 ### For those following along
 `git checkout -b sandbox`

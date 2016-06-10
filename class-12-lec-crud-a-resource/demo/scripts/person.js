@@ -50,6 +50,17 @@
 
   // DONE: Insert an article instance into the database:
   Person.prototype.insertRecord = function(callback) {
+<<<<<<< HEAD
+    webDB.execute(
+      [
+        {
+          sql:'INSERT INTO people (id, first, middle, last, dob, bio) VALUES ( ? ,?, ?, ? , ? , ?);',
+          data:[this.id, this.first, this.middle, this.last, this.dob, this.bio]
+        }
+      ],
+      callback
+    );
+=======
     console.log("******** insert Record *******");
     webDB.execute (
         [
@@ -59,6 +70,7 @@
             }
         ],
     callback);
+>>>>>>> 1cf04d6c85350afdb0e584f49ddddcb3712a2b9d
   };
 
   // DONE: Refactor to expect the raw data from the database, rather than localStorage.
@@ -70,6 +82,23 @@
 
   Person.fetchAll = function(callback) {
     webDB.execute('SELECT * FROM people', function(rows){
+<<<<<<< HEAD
+      if(rows.length !== 0){
+        console.log(rows);
+        Person.loadAll(rows);
+        callback();
+    } else {
+      console.log("no data");
+      $.getJSON('../data/people.json', function(data){
+        var person = new Person(data);
+        person.insertRecord();
+      });
+      Person.loadAll(person);
+      callback();
+    }
+  });
+}
+=======
       if (rows.length !== 0){
         console.log(rows);
         Person.loadAll(rows);
@@ -88,6 +117,7 @@
       }
     });
   };
+>>>>>>> 1cf04d6c85350afdb0e584f49ddddcb3712a2b9d
 
 
   module.Person = Person;

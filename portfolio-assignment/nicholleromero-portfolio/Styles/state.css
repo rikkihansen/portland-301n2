@@ -1,0 +1,24 @@
+iframe {
+  max-width: 100%;
+}
+
+
+/*-------Responsive design------ */
+
+
+@media only screen and (min-width: 500px) {
+
+.icon-menu{
+    display: none;
+  }
+
+  .navigation ul{
+    display: block;
+    list-style-type: none !important;
+  }
+
+  .navigation ul li {
+    display: inline;
+  }
+
+}

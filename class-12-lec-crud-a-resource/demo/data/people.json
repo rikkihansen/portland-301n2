@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+{
+  "id" : "10001",
+ "first": "Joe",
+  "middle" : "p",
+  "last" : "Welsh",
+  "dob": "12/23/15",
+ "bio" : "dead"
+ }
+=======
 [
   {
     "id" : 1001,
@@ -16,3 +26,4 @@
     "bio" : "Born January 19, 1819, Boston, Massachusetts"
   }
 ]
+>>>>>>> 1cf04d6c85350afdb0e584f49ddddcb3712a2b9d
