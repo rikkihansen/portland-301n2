@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Web Developer | Portfolio</title>
+    <title>Aaron Beerman</title>
     <link type="text/css" rel="stylesheet" href="css/vendor/skeleton.css">
     <link type="text/css" rel="stylesheet" href="css/vendor/normalize.css">
     <link type="text/css" rel="stylesheet" href="css/modules/modules.css">
@@ -31,6 +31,17 @@
     </article>
   </script>
 
+  <script id="my_repo-template" type="text/x-handlebars-template">
+      <li>
+        <a href="{{html_url}}" target="_blank"><h3>{{ name }}</h3></a>
+        <p> Owner: {{ owner.login }} <img src="{{ owner.avatar_url }}" /></p>
+        <p>Description: {{ description }}</p>
+
+        <p>Created: {{ created_at }}</p>
+        <p>Last updated: {{ updated_at }}</p>
+
+      </li>
+    </script>
 
 </head>
 
@@ -43,11 +54,11 @@
         <nav class="firstNav">
             <div class="burg ">
                 <ul class="navList">
-                    <li class="hometab icon-home" data-content="projects"><a href="#"><span class="menuFont">Home</span></a></li>
-                    <li class="tab icon-user" data-content="about"><a href="#"><span class="menuFont">About</span></a></li>
+                    <li class="hometab icon-home" data-content="projects"><a href="/"><span class="menuFont">Home</span></a></li>
+                    <li class="tab icon-user" data-content="about"><a href="/about"><span class="menuFont">About</span></a></li>
                     <li class="icon-facebook2"><a href="https://www.facebook.com/aaron.beerman.9" target="_blank"><span class="menuFont">Facebook</span></a></li>
                     <li class="icon-github"><a href="https://github.com/lagoatus" target="_blank"><span class="menuFont">Github</span></a></li>
-                    <li class="contact icon-phone"> <a href="#"><span class="menuFont">Contact</span></a></li>
+                    <li class="contact icon-phone"> <a href="/"><span class="menuFont">Contact</span></a></li>
                 </ul>
             </div>
             <hr>
@@ -58,11 +69,12 @@
 
         <section id="about" class="tab-content">
             <header>
-                Welcome to my Porfolio!
+                Welcome to my Portfolio!
             </header>
             <section id="aboutSection">
                 <h1>Some of my interests:</h1>
                 <ul>
+
                     <li>Coding</li>
                     <li>Finding a new species of bird that I have never seen.</li>
                     <li>Discovering...</li>
@@ -77,10 +89,18 @@
 
     <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
-    <script src="typed.js"></script>
-    <script src="blogobjects.js"></script>
-    <script src="blog.js"></script>
-    <script src="view.js"></script>
+    <script src="/scripts/githubToken.js"></script>
+    <script src="/css/vendor/pages.js"></script>
+
+    <script src="/css/vendor/typed.js"></script>
+    <script src="/scripts/blog.js"></script>
+    <script src="/scripts/view.js"></script>
+
+    <script src="/scripts/aboutController.js"></script>
+    <script src="/scripts/repo.js"></script>
+    <script src="/scripts/repoView.js"></script>
+    <script src="/scripts/routes.js"></script>
+
     <script>
       Projects.fetchall(projectView.initIndexPage);
     </script>

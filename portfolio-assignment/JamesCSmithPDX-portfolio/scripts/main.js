@@ -82,4 +82,5 @@
 
 
   module.Project = Project;
+
 })(window);

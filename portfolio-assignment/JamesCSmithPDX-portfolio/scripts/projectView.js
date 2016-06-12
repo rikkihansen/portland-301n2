@@ -3,16 +3,26 @@
   var projectView = {};
 
   // create tab views of content in #projects and #about
-  projectView.handleMainNav = function() {
-    $('.mainNav').on('click', 'li', function() {
-      $('.jumbotron').fadeTo(5000, 1);
-      $('.page-content').hide();
-      $('#hbAnagram').remove();
-      anagram.create();
-      $('main').find('[id="'+$(this).attr('data-section')+'"]').fadeIn(5000);
-      projectView.scroll(this);
+  projectView.portfolio = function() {
+    Project.all.forEach(function(a){
+      $('#projects').append(a.toHtml());
     });
+    projectView.createTeaser();
+    $('.jumbotron').fadeTo(5000, 1);
+    $('.page-content').hide();
+    $('#projects').fadeIn(5000);
+    projectView.scroll('#projects');
   };
+
+  projectView.about = function() {
+    $('.jumbotron').fadeTo(5000, 1);
+    $('.page-content').hide();
+    $('#hbAnagram').remove();
+    anagram.create();
+    $('#about').fadeIn(5000);
+    projectView.scroll('#about');
+  };
+
 
   // more and shrink function
   projectView.createTeaser = function() {
@@ -25,7 +35,10 @@
       $(this).hide();
       $(this).next().show();
     });
-    $('.shrink').on('click', function(e) {
+  };
+
+  projectView.shrinkTeaser = function() {
+    $('.shrink').on('click', function(event) {
       event.preventDefault();
       $('.projDescription *:nth-child(n)').hide();
       $('.projDescription *:nth-child(1)').show();
@@ -42,13 +55,8 @@
 
   //call the functions
   projectView.initIndexPage = function(){
-    Project.all.forEach(function(a){
-      $('#projects').append(a.toHtml());
-    });
     $('.page-content').hide();
-    $('.jumbotron').fadeTo(15000, 0.0);
-    projectView.handleMainNav();
-    projectView.createTeaser();
+    $('.jumbotron').fadeTo(5000, 0.5);
   };
   module.projectView = projectView;
 })(window);

@@ -13,9 +13,21 @@
         'Authorization' : 'token ' + githubToken
       },
       success: function(data, message, xhr){
+<<<<<<< HEAD
+        console.log('success');
+        repos.all = data;
+        console.log(repos.all);
+=======
+<<<<<<< HEAD
+        console.log('success');
+        repos.all = data;
+        console.log(repos.all);
+=======
         console.log('success')
         repos.all = data;
         console.log(repos.all)
+>>>>>>> 03e87effd900d8eafbc21e7225b273e2ccbc29c2
+>>>>>>> 5b9d4415086f9815a8ab90adcc7061be09d8609a
       },
       error: function(error){
         console.log('error');

@@ -175,6 +175,19 @@ select{
   clear: both;
 }
 
+
+.skills-images img{
+  height: 10.0rem;
+  margin: 3em 1em;
+}
+
+.skills-images{
+  margin: 3rem;
+  display: flex;
+  justify-content: flex-start;
+  clear: both;
+}
+
 .modal{
   display: none;
   position: fixed;

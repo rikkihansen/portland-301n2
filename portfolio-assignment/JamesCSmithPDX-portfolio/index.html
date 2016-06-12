@@ -1,104 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-  <!-- Basic Page Needs
+    <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portfolio: James Smith</title>
-  <!-- FONT
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio: James Smith</title>
+    <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <style type="text/css">
-    @font-face {
-      font-family:"ForoRounded W01 Light";
-      src:url("Fonts/1441113/d33771d3-bab7-4d82-afb4-8d4b0bac54df.eot?#iefix");
-      src:url("Fonts/1441113/d33771d3-bab7-4d82-afb4-8d4b0bac54df.eot?#iefix") format("eot"),url("Fonts/1441113/560251fa-446d-4047-a110-c78ec1a2fd09.woff2") format("woff2"),url("Fonts/1441113/3bebc64d-8695-4e2d-93b7-356d30fc6e75.woff") format("woff"),url("Fonts/1441113/66950f1e-bc44-49be-8565-6f752a16cb3a.ttf") format("truetype");
-    }
-  </style>
-  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        @font-face {
+            font-family: "ForoRounded W01 Light";
+            src: url("Fonts/1441113/d33771d3-bab7-4d82-afb4-8d4b0bac54df.eot?#iefix");
+            src: url("Fonts/1441113/d33771d3-bab7-4d82-afb4-8d4b0bac54df.eot?#iefix") format("eot"), url("Fonts/1441113/560251fa-446d-4047-a110-c78ec1a2fd09.woff2") format("woff2"), url("Fonts/1441113/3bebc64d-8695-4e2d-93b7-356d30fc6e75.woff") format("woff"), url("Fonts/1441113/66950f1e-bc44-49be-8565-6f752a16cb3a.ttf") format("truetype");
+        }
+    </style>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
 
-  <!-- CSS
+    <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="styles/base-normalize.css">
-  <link rel="stylesheet" href="styles/base-bootstrap.min.css">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/projects-modules.css">
-  <link rel="stylesheet" href="styles/main-modules.css">
+    <link rel="stylesheet" href="styles/base-normalize.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/projects-modules.css">
+    <link rel="stylesheet" href="styles/main-modules.css">
 
-  <!-- Handlebars
+    <!-- Handlebars
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <script id="portfolio-template" type="text/x-handlebars-template">
-    <div class="col-lg-6">
-      <article data-category="projectType">
-          <header>
-            <h2>{{title}}</h2>
-              <div class="contributors">
-                  <a href="{{contributorUrl}}">By {{contributor}}</a>
-                  <time pubdate datetime="2000-01-01" title={{postDate}}>{{publishStatus}}</time>
-                    <div>
-                    <img src="{{imgSrc}}" alt="{{imgAlt}}">
-                  </div>
-              </div>
-          </header>
-          <section class="projDescription">{{{projDescription}}}
-          </section>
-          <a href="#" class="read-on">More &rarr;</a>
-          <a href="#" class="shrink">&larr;Less</a>
-        </article>
-      </div>
-  </script>
+    <script id="portfolio-template" type="text/x-handlebars-template">
+        <div class="col-lg-6">
+            <article data-category="projectType">
+                <header>
+                    <h2>{{title}}</h2>
+                    <div class="contributors">
+                        <a href="{{contributorUrl}}">By {{contributor}}</a>
+                        <time pubdate datetime="2000-01-01" title={{postDate}}>{{publishStatus}}</time>
+                        <div>
+                            <img src="{{imgSrc}}" alt="{{imgAlt}}">
+                        </div>
+                    </div>
+                </header>
+                <section class="projDescription">{{{projDescription}}}
+                </section>
+                <a href="#" class="read-on">More &rarr;</a>
+                <a href="#" class="shrink">&larr;Less</a>
+            </article>
+        </div>
+    </script>
 
-  <script id="anagram-template" type="text/x-handlebars-template">
-          <div id="hbAnagram">
+    <script id="anagram-template" type="text/x-handlebars-template">
+        <div id="hbAnagram">
             <p class="hbAnagram"><strong>Scrambled Name:</strong> {{hbAnagram}}</p>
             <p class="hbAnagram">
-              Brought to you by string split into array, Fisher-Yates shuffled and reduced.
+                Brought to you by string split into array, Fisher-Yates shuffled and reduced.
             </p>
-          </div>
-  </script>
+        </div>
+    </script>
+
 </head>
 
 <body>
-  <div class="container">
-    <div class="header">
-      <div class="jumbotron">
-        <a href="http://trajectoryds.com"><img src="imgAssets/James.jpg" alt="James C Smith"></a>
-        <h1>James Smith</h1>
-        <h3>Front End Developer</h3>
-      </div>
-    <div class="mainNav">
-        <ul class="nav nav-pills topNav">
-          <li data-section="projects" class="tab"><a href="#">Portfolio</a></li>
-          <li data-section="about" class="tab"><a href="#">About Me</a></li>
-        </ul>
-    </div>
-  </div>
-  <main>
-      <div class="row marketing">
-        <section id="projects" class="page-content">
-        </section>
-      </div>
-    <footer id="about" class="page-content">
-          <p id="anagram">
-            James is a developer who attended Code Fellows&trade; learning HTML, CSS, JavaScript, JQuery, Handlebars, Bootstrap and responsive design. In his previous life he was a market and competitive intelligence analyst, helping teams understand market landscapes, customers and competitors. He loves hiking the Gorge, craft beers and RipCity.
-          </p>
-
-        <div class="links">
-          <a href="https://twitter.com/JamesC_Smith" target="_blank"><img src="imgAssets\twitter.svg" alt="JamesC_Smith Twitter" class="icon" /></a>
-          <a href="https://www.linkedin.com/in/jamescsmithpdx" target="_blank"><img src="imgAssets\linkedin.svg" alt="James C Smith LinkedIn" class="icon" /></a>
-          <a href="https://github.com/JamesCSmithPDX" target="_blank"><img src="imgAssets\github.svg" alt="JamesCSmithPDX Github" class="icon" /></a>
+    <div class="container">
+        <div class="header">
+            <div class="jumbotron">
+                <a href="http://trajectoryds.com"><img src="imgAssets/James.jpg" alt="James C Smith"></a>
+                <h1>James Smith</h1>
+                <h3>Front End Developer</h3>
+            </div>
+            <div class="mainNav">
+                <ul class="nav nav-pills topNav">
+                    <li data-section="projects" class="tab"><a href="/portfolio">Portfolio</a></li>
+                    <li data-section="about" class="tab"><a href="/about">About Me</a></li>
+                </ul>
+            </div>
         </div>
-    </footer>
+        <main>
+            <div class="row marketing">
+                <section id="projects" class="page-content">
+                </section>
+            </div>
+            <section id="about" class="page-content about">
+                <p id="anagram">
+                    James is a developer who attended Code Fellows&trade; learning HTML, CSS, JavaScript, JQuery, Handlebars, Bootstrap and responsive design. In his previous life he was a market and competitive intelligence analyst, helping teams understand market landscapes,
+                    customers and competitors. He loves hiking the Gorge, craft beers and RipCity.
+                </p>
+
+                <div class="links">
+                    <a href="https://twitter.com/JamesC_Smith" target="_blank"><img src="imgAssets\twitter.svg" alt="JamesC_Smith Twitter" class="icon" /></a>
+                    <a href="https://www.linkedin.com/in/jamescsmithpdx" target="_blank"><img src="imgAssets\linkedin.svg" alt="James C Smith LinkedIn" class="icon" /></a>
+                    <a href="https://github.com/JamesCSmithPDX" target="_blank"><img src="imgAssets\github.svg" alt="JamesCSmithPDX Github" class="icon" /></a>
+                </div>
+
+            </section>
+        </main>
+        <footer id="footer">
+            <p>
+              My recent GitHub repos:
+            </p>
+            <ul class="nav nav-pills" id="repo"></ul>
+        </footer>
     </div>
-</main>
+
     <script src="https://code.jquery.com/jquery-1.12.3.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+    <script src="scripts/page.js"></script>
+    <script src="scripts/hbsTemplate.js"></script>
     <script src="scripts/main.js"></script>
     <script src="scripts/anagram.js"></script>
+    <script src="scripts/githubToken.js"></script>
+    <script src="scripts/repo.js"></script>
+    <script src="scripts/repoView.js"></script>
     <script src="scripts/projectView.js"></script>
-    <script>Project.fetchAll(projectView.initIndexPage);</script>
+    <script src="scripts/projectController.js"></script>
+    <script src="scripts/portfolioController.js"></script>
+    <script src="scripts/aboutController.js"></script>
+    <script src="scripts/routes.js"></script>
+
+    <script>
+        repos.requestRepos(repoView.index)
+    </script>
 </body>
+
 </html>

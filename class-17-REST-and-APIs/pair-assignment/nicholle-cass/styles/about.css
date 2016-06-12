@@ -1,0 +1,28 @@
+li.about {
+  list-style-type: none;
+}
+
+div.about {
+  margin-left: 3em;
+}
+
+.about .first {
+  margin-top: -1.75em;
+}
+
+h3.about{
+  font-size: 2.5em;
+  color: #4c4c81;
+}
+
+h4.about {
+  font-size: 1.25em;
+  display: inline;
+  color: #4c4c81;
+}
+
+p.about {
+  font-size: 1em;
+  display: inline;
+  font-style: italic;
+}

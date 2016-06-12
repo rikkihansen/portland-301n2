@@ -45,7 +45,11 @@
   };
 
   module.webDB = webDB;
+<<<<<<< HEAD
 })(window);
+=======
+})(window)
+>>>>>>> class-17
 
 // We can go ahead and set up the basic db connection now:
 webDB.init(true);

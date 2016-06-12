@@ -14,10 +14,17 @@
     })
     .done(function(data, message, xhr) {
       repos.all = data;
+<<<<<<< HEAD
       console.log(message);
     })
     .fail(function(data, message, xhr) {
       console.log(message);
+=======
+      console.log(repos.all);
+    })
+    .fail(function(data, message, xhr) {
+      console.log('fuggg');
+>>>>>>> class-17
     })
     .then(callback);
   };

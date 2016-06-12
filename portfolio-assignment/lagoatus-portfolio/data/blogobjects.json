@@ -5,7 +5,7 @@
     		  "projectUrl":   "http:\/\/pdx-neighbors.github.io\/pdx-neighbors\/",
     		  "completionDate": "2016-04-30",
           "DaystoComplete": 12,
-    		  "body":        "<p>PDX Neighbors was a group, class project created to help new Portland area residents determine which neighborhood best suits them.<\/p> <img src='nw.png' class=''> <hr class='hrAppend'>"
+    		  "body":        "<p>PDX Neighbors was a group, class project created to help new Portland area residents determine which neighborhood best suits them.<\/p> <img src='/assets/nw.png' class=''> <hr class='hrAppend'>"
         },
         {
            	  "title":       "Busmall Research Surveys",
@@ -13,7 +13,7 @@
    			  "projectUrl":   "http:\/\/pdx-neighbors.github.io\/pdx-neighbors\/",
     		  "completionDate": "2016-03-20",
           "DaystoComplete": 4,
-   			  "body":        "<p>Class project created to help researchers determine which products are preferred. <\/p> <img src='nw.png' class=''> <hr class='hrAppend'>"
+   			  "body":        "<p>Class project created to help researchers determine which products are preferred. <\/p> <img src='/assets/nw.png' class=''> <hr class='hrAppend'>"
         },
         {
               "title":       "PDX",
@@ -21,6 +21,6 @@
     		  "projectUrl":   "http:\/\/pdx-neighbors.github.io\/pdx-neighbors\/",
     		  "completionDate": "2016-04-30",
           "DaystoComplete": 12,
-              "body":        "<p>PDX Neighbors was a group, class project created to help new Portland area residents determine which neighborhood best suits them.<\/p> <img src='nw.png' class=''> <hr class='hrAppend'>"
+              "body":        "<p>PDX Neighbors was a group, class project created to help new Portland area residents determine which neighborhood best suits them.<\/p> <img src='/assets/nw.png' class=''> <hr class='hrAppend'>"
         }
   ]
